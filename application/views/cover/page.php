@@ -43,7 +43,7 @@
 <hr />
 <div class="cover">
 	<center>
-    <img alt="Logo" src="<?php echo site_url('assets/images/logo.jpg'); ?>">
+    <img alt="Logo" src="<?php echo base_url('assets/images/logo.jpg'); ?>">
     <h2><b>Dancer 4 Life</b></h2>
     <h3>We connect each Dance Community</h3>
     </center>

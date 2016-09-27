@@ -13,6 +13,45 @@ class Index extends CI_Controller {
 		$data['comm_list']=$this->IndexModel->select_comm()->result();
 		$this->load->view('cover/Index',$data);
 	}
+	// memeriksa keberadaan akun email
+	public function login(){
+		$email = $this->input->post('email', 'true');
+		$input_password = $this->input->post('pwd', 'true');
+		$password = md5($input_password);
+		$temp_account = $this->IndexModel->check_user_account($email, $password)->row();
+		// check account
+		$num_account = count($temp_account);
+		$this->form_validation->set_rules('email', 'email', 'required');
+		$this->form_validation->set_rules('pwd', 'Password', 'required');
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->load->view('Index');
+		} else
+		{
+		if ($num_account > 0){
+		// kalau ada set session
+		$array_items = array(
+		'id_user' => $temp_account->id_user,
+		'email' => $temp_account->email,
+		'logged_in' => true
+		);
+		$this->session->set_userdata($array_items);
+		redirect(site_url('Index/view_success_page'));
+		} else {
+		// kalau ga ada diredirect lagi ke halaman login
+		$this->session->set_flashdata('notification', 'Peringatan : email dan Password
+		tidak cocok');
+		redirect(site_url('Index'));
+		}
+		}
+	}
+	public function view_success_page(){
+		$logged_in = $this->session->userdata('logged_in');
+		if (!$logged_in){
+		redirect(site_url('Index'));
+		}
+		$this->load->view('main/Index');
+	}
 	public function signup(){
 		$data['name']=$this->input->post('name');
 		$data['email']=$this->input->post('email');

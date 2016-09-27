@@ -32,7 +32,7 @@
         <a class="navbar-brand" href="#">Dancer 4 Life</a>
       </div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#"><span class="glyphicon glyphicon-file"></span>  Create your Community [Coming Soon]</a></li>
+        <li class="active"><a href="#"><span class="glyphicon glyphicon-file"></span>  Create your Community [Coming Soon] or Donate</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Registered Community
           <span class="caret"></span></a>
@@ -113,23 +113,17 @@
         <h4 class="modal-title">Login</h4>
       </div>
       <div class="modal-body">
-        <form role="LoginForm" method="post" action="<?php echo site_url('index/login'); ?>">
+      <?php echo validation_errors(); ?>
+      <p style="color:red;"><?php echo $this->session->flashdata('notification'); ?></p>
+        <form role="LoginForm" method="post" action="<?php echo site_url('Index/login'); ?>">
           <div class="form-group">
             <label for="email">Email address:</label>
-            <input type="email" class="form-control" name="email">
+            <input type="email" class="form-control" name="email" value="<?php echo set_value('email')?>">
           </div>
           <div class="form-group">
             <label for="pwd">Password:</label>
-            <input type="password" class="form-control" name="pwd">
+            <input type="password" class="form-control" name="pwd" value="<?php echo set_value('password')?>">
           </div>
-           <div class="form-group">
-              <label for="sel1">Choose Community:</label>
-              <select class="form-control" name="community">
-              <?php foreach ($comm_list as $comm_ini) {?>
-                <option value="EDC"><?php echo $comm_ini->comm_name; ?></option>
-              <?php } ?>
-              </select>
-            </div>
           <div class="checkbox">
             <label><input type="checkbox" id="rememberMe"> Remember me</label>
           </div>

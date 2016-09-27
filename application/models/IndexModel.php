@@ -13,15 +13,32 @@ class IndexModel extends CI_Model {
 
 		return $this->db->get();
 	}
+	//Insert data ketika mendaftar
 	public function insert_user($data){
 		return $this->db->insert('user',$data);
 	}
+    //Cek keberadaan User
+    public function check_user_account($email,$password){
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->where('email',$email);
+        $this->db->where('password',$password);
+
+        return $this->db->get();
+    }
+    // mengambil data user tertentu
+    public function get_user($id_user){
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->where('id_user', $id_user);
+        return $this->db->get();
+    }
 	//send verification email to user's email id
     public function sendEmail($to_email)
     {
         $from_email = 'zulham724@gmail.com'; //change this to yours
         $subject = 'Verify Your Email Address';
-        $message = 'Dear User,<br /><br />Please click on the below activation link to verify your email address.<br /><br /> http://www.hookyouup.com/Index.php/index/verify/' . md5($to_email) . '<br /><br /><br />Thanks<br />Mydomain Team';
+        $message = 'Dear User,<br /><br />Please click on the below activation link to verify your email address.<br /><br /> http://www.hookyouup.com/Index.php/index/verify/' . md5($to_email) . '<br /><br /><br />Thanks<br /><b>Hook You Up Team Developer</b>';
         
         //configure email settings
         $config['protocol'] = 'smtp';
@@ -36,7 +53,7 @@ class IndexModel extends CI_Model {
         $this->email->initialize($config);
         
         //send mail
-        $this->email->from($from_email, 'Mydomain');
+        $this->email->from($from_email, 'Hook You Up');
         $this->email->to($to_email);
         $this->email->subject($subject);
         $this->email->message($message);
