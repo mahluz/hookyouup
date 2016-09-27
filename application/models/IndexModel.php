@@ -21,11 +21,11 @@ class IndexModel extends CI_Model {
     {
         $from_email = 'zulham724@gmail.com'; //change this to yours
         $subject = 'Verify Your Email Address';
-        $message = 'Dear User,<br /><br />Please click on the below activation link to verify your email address.<br /><br /> http://www.mydomain.com/user/verify/' . md5($to_email) . '<br /><br /><br />Thanks<br />Mydomain Team';
+        $message = 'Dear User,<br /><br />Please click on the below activation link to verify your email address.<br /><br /> http://www.hookyouup.com/Index.php/index/verify/' . md5($to_email) . '<br /><br /><br />Thanks<br />Mydomain Team';
         
         //configure email settings
         $config['protocol'] = 'smtp';
-        $config['smtp_host'] = 'ssl://smtp.mydomain.com'; //smtp host name
+        $config['smtp_host'] = 'ssl://smtp.gmail.com'; //smtp host name
         $config['smtp_port'] = '465'; //smtp port number
         $config['smtp_user'] = $from_email;
         $config['smtp_pass'] = 'aamgaul724698'; //$from_email password

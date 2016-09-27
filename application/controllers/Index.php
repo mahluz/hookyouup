@@ -23,11 +23,13 @@ class Index extends CI_Controller {
 		if($this->IndexModel->insert_user($data)){
 			if($this->IndexModel->sendEmail($this->input->post('email'))){
 				// successfully sent mail
-				echo'Konfirmasi dulu';
+				$this->session->set_flashdata('msg','<div class="alert alert-success text-center">You are Successfully Registered! Please confirm the mail sent to your Email-ID!!!</div>');
+                    redirect('Index');
 			}
 			else{
 				 // error
-                echo'gagal kirim konfirmasi email';
+                    $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Oops! Error.  Please try again later!!!</div>');
+                    redirect('Index');
 
 			}
 		}
