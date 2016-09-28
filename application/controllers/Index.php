@@ -32,6 +32,7 @@ class Index extends CI_Controller {
 		// kalau ada set session
 		$array_items = array(
 		'id_user' => $temp_account->id_user,
+		'name' => $temp_account->name,
 		'email' => $temp_account->email,
 		'logged_in' => true
 		);
@@ -67,15 +68,13 @@ class Index extends CI_Controller {
 			}
 			else{
 				 // error
-                    $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Oops! Error.  Please try again later!!!</div>');
-                    redirect('Index');
+                    echo'gagal kirim email';
 
 			}
 		}
 		else{
 			// error
-                $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Oops! Error.  Please try again later!!!</div>');
-                redirect('Index');
+                echo'Email sudah ada atau terjadi error';
 		}
 	}
 	public function verify($hash=NULL)
