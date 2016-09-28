@@ -1,5 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+/*
+	Ini HMVC Modul sisipan sendiri 
+*/
+$config['modules_locations'] = array(
+    APPPATH.'modules/' => '../modules/',
+);
 
 /*
 |--------------------------------------------------------------------------

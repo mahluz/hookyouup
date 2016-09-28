@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Sukses</title>
-</head>
-<body>
-<h1>Sukses Login!</h1>
-</body>
-</html>
+<?php
+include'header.php';
+include'page.php';
+include'footer.php';
+?>

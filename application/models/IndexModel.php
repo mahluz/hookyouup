@@ -38,7 +38,7 @@ class IndexModel extends CI_Model {
     {
         $from_email = 'zulham724@gmail.com'; //change this to yours
         $subject = 'Verify Your Email Address';
-        $message = 'Dear User,<br /><br />Please click on the below activation link to verify your email address.<br /><br /> http://www.hookyouup.com/index.php/Index/verify/' . md5($to_email) . '<br /><br /><br />Thanks<br /><b>Hook You Up Team Developer</b>';
+        $message = 'Dear User,<br /><br />Please click on the below activation link to verify your email address.<br /><br /> http://localhost/hookyouup.com/index.php/Index/verify/' . md5($to_email) . '<br /><br /><br />Thanks<br /><b>Hook You Up Team Developer</b>';
         
         //configure email settings
         $config['protocol'] = 'smtp';
