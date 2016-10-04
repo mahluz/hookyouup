@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dancer 4 Life</title>
+<title>Hook You Up</title>
 <link href="<?php echo base_url('assets/css/boilerplate.css'); ?>" rel="stylesheet" type="text/css">
 <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet" type="text/css">
 <link rel="icon" href="<?php echo base_url('assets/images/icon.png'); ?>">
@@ -29,7 +29,7 @@
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Dancer 4 Life</a>
+        <a class="navbar-brand" href="#">Hook You Up</a>
       </div>
       <ul class="nav navbar-nav">
         <li class="active"><a href="#"><span class="glyphicon glyphicon-file"></span>  Create your Community [Coming Soon] or Donate</a></li>
@@ -42,7 +42,7 @@
           <?php } ?>
           </ul>
         </li>
-        <li><a href="#">About us</a></li> 
+        <li><a href="<?php echo site_url('beranda'); ?>">About us</a></li> 
       </ul>
       <ul class="nav navbar-nav navbar-right">
           <li data-toggle="modal" data-target="#myModal"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
