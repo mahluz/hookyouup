@@ -1,11 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-/*
-	Ini HMVC Modul sisipan sendiri 
-*/
-$config['modules_locations'] = array(
-    APPPATH.'modules/' => '../modules/',
-);
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +24,7 @@ $config['modules_locations'] = array(
 |
 */
 $config['base_url'] = 'http://localhost/hookyouup/';
+$config['limit']	= 2;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +36,7 @@ $config['base_url'] = 'http://localhost/hookyouup/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------

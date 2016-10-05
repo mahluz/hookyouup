@@ -5,9 +5,6 @@ class Signin extends MX_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Signin_Model');
-		$this->load->helper('url','form');
-		$this->load->library('form_validation');
-		$this->form_validation->CI =& $this;
 	}
 	public function index()
 	{

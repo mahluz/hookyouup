@@ -36,7 +36,7 @@
     <div class="container">
       <?php echo validation_errors(); ?>
       <p style="color:red;"><?php echo $this->session->flashdata('notification')?></p>
-      <form class="form-signin" method="post" action="<?php echo Modules::run('Signin/login'); ?>">
+      <form class="form-signin" method="post" action="<?php echo base_url('Signin/login'); ?>">
         <h2 class="form-signin-heading">Admin page</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email address" value="<?php echo set_value('email')?>" required autofocus>
