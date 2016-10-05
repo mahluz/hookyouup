@@ -43,9 +43,10 @@
 <hr />
 <div class="cover">
 	<center>
-    <img alt="Logo" src="<?php echo base_url('assets/images/logo.jpg'); ?>">
-    <h2><b>Dancer 4 Life</b></h2>
-    <h3>We connect each Dance Community</h3>
+    <h1>Logo Image</h1>
+    <!-- <img alt="Logo" src="<?php echo base_url('assets/images/logo.jpg'); ?>"> -->
+    <h2><b>Hook You Up</b></h2>
+    <h3>We connect each Community</h3>
     </center>
     <hr/>
     <div class="coverkiri">

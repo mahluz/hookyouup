@@ -7,6 +7,7 @@
 <h1>
 	Selamat Anda Berhasil Masuk beranda!
 </h1>
-<a href="<?php echo site_url('forum') ?>"><button type="button">Forum</button></a>
+<a href="<?php echo site_url('forum'); ?>"><button type="button">Forum</button></a>
+<a href="<?php echo site_url('index'); ?>"><button type="button">Cover</button></a>
 </body>
 </html>
