@@ -10,7 +10,7 @@ class Admin extends MX_Controller {
 	}
 	public function index()
 	{
-		$data['blog']=$this->Admin_Model->select_all()->result();
+		$data['blog']=$this->Admin_Model->select_all_blog()->result();
 		$this->load->view('entri_list',$data);
 	}
 	public function new_entri(){
@@ -23,6 +23,13 @@ class Admin extends MX_Controller {
 		$this->db->set('id_admin','1');
 		$this->Admin_Model->insert_blog($data);
 		redirect(site_url('admin'));
+	}
+	public function event_list(){
+		$data['event']=$this->Admin_Model->select_all_event()->result();
+		$this->load->view('event_list',$data);
+	}
+	public function proses_tambah_event(){
+
 	}
 }
 

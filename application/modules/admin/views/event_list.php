@@ -63,7 +63,7 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">BLOG<span class="sr-only">(current)</span></a></li>
-            <li><a href="<?php echo base_url('admin/event_list'); ?>">EVENT</a></li>
+            <li><a href="#">EVENT</a></li>
             <li><a href="#">BOOKING</a></li>
             <li><a href="#">MAILING</a></li>
           </ul>
@@ -75,42 +75,19 @@
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-          <h2 class="sub-header">New Entri</h2>
+          <h2 class="sub-header">List Entri</h2>
           <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                  <div class="well well-sm">
-                    <form class="form-horizontal" method="post" action="<?php echo base_url('admin/proses_tambah_blog'); ?>">
-                    <fieldset>
-                      <legend class="text-center">Whats Going on ?</legend>
-              
-                      <!-- Name input-->
-                      <div class="form-group">
-                        <label class="col-md-3 control-label" for="name">Title</label>
-                        <div class="col-md-9">
-                          <input id="name" name="title" type="text" placeholder="Title" class="form-control">
-                        </div>
-                      </div>
-              
-                      <!-- Message body -->
-                      <div class="form-group">
-                        <label class="col-md-3 control-label" for="message">Content</label>
-                        <div class="col-md-9">
-                          <textarea class="form-control" id="message" name="content" placeholder="Please enter your Content here..." rows="5"></textarea>
-                        </div>
-                      </div>
-              
-                      <!-- Form actions -->
-                      <div class="form-group">
-                        <div class="col-md-12 text-right">
-                          <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-                        </div>
-                      </div>
-                    </fieldset>
-                    </form>
-                  </div>
-                </div>
-                <!-- End Row -->
+            <div class="row" style="width: 50vw;">
+              <?php foreach ($blog as $ini) {
+              $post=character_limiter($ini->content,200);?>
+              <div class="blog-post">
+                <h2 class="blog-post-title"><?php echo $ini->title; ?></h2>
+                <p class="blog-post-meta"><span class="glyphicon glyphicon-time"></span><?php echo $ini->date_created ?> by <a href="#"><span class="glyphicon glyphicon-user"></span><?php echo $ini->nama; ?></a></p>
+                <p><?php echo $post; ?></p>
+                <a href="<?php echo site_url('index') ?>"><input type="button" name="buka_post" value="Read More" class="btn btn-default"></a>
+              </div><!-- /.blog-post -->
+              <?php }?>
+            <!--End Row -->  
             </div>
           </div>
         </div>

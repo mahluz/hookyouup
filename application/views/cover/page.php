@@ -50,16 +50,16 @@
     </center>
     <hr/>
     <div class="coverkiri">
+    <h1>NEWS</h1>
+    <?php foreach ($blog as $ini) {
+      $post=character_limiter($ini->content,200);?>
     	<div style="text-align: justify;">
-<span style="background-color: white;"><i><i class="fa fa-quote-left fa-3x fa-pull-left fa-border"></i>Lorem ipsum dolor sit amet,consectetur adipiscing elit.
-Nam rutrum,nisi vitae viverra ornare,erat orci
-vestibulum nulla,elementum hendrerit nisi lorem
-eget libero.Aliquam sed purus egestas,
-volutpat magna sit amet,ultrices libero.
-Nullan sit amet luctus libero,et gravida odio.
-Maecenas sit amet tincidunt tellus.
-Vivamus lorem nisi,molestie eu tellus sit amet,
-vehicula accumsan nulla.</i></span></div>
+      <h3><?php echo $ini->title; ?></h3>
+      <p class="blog-post-meta"><span class="glyphicon glyphicon-time"></span><?php echo $ini->date_created ?> by <a href="#"><span class="glyphicon glyphicon-user"></span><?php echo $ini->nama; ?></a></p>
+      <span style="background-color: white;"><i><i class="fa fa-quote-left fa-3x fa-pull-left fa-border"></i><?php echo $post; ?></i></span></div>
+      <input type="button" name="buka_post" value="Read More" class="btn btn-default"></a>
+      <hr>
+      <?php }?>
     <!-- end .coverkiri --></div>
     <div class="coverkanan">
     <h1>EVENT</h1>

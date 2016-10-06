@@ -11,6 +11,7 @@ class Index extends CI_Controller {
 	public function index()
 	{
 		$data['comm_list']=$this->IndexModel->select_comm()->result();
+		$data['blog']=$this->IndexModel->select_all()->result();
 		$this->load->view('cover/Index',$data);
 	}
 	// memeriksa keberadaan akun email

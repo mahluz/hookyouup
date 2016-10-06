@@ -63,7 +63,7 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">BLOG<span class="sr-only">(current)</span></a></li>
-            <li><a href="<?php echo base_url('admin/event_list'); ?>">EVENT</a></li>
+            <li><a href="#">EVENT</a></li>
             <li><a href="#">BOOKING</a></li>
             <li><a href="#">MAILING</a></li>
           </ul>
