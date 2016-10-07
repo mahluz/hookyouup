@@ -7,13 +7,13 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="<?php echo base_url('assets/images/icon.ico'); ?>">
+    <link rel="icon" href="<?php echo base_url('assets/images/icon.png'); ?>">
 
     <title>Admin</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
-
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="<?php echo base_url('assets/css/ie10-viewport-bug-workaround.css'); ?>" rel="stylesheet">
 
@@ -76,6 +76,7 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
           <h2 class="sub-header">List Entri</h2>
+          <a href="<?php echo base_url('admin/new_entri'); ?>"><button type="button" class="btn btn-primary">New Entri</button></a>          
           <div class="container">
             <div class="row" style="width: 50vw;">
               <?php foreach ($blog as $ini) {
@@ -84,7 +85,9 @@
                 <h2 class="blog-post-title"><?php echo $ini->title; ?></h2>
                 <p class="blog-post-meta"><span class="glyphicon glyphicon-time"></span><?php echo $ini->date_created ?> by <a href="#"><span class="glyphicon glyphicon-user"></span><?php echo $ini->nama; ?></a></p>
                 <p><?php echo $post; ?></p>
-                <a href="<?php echo site_url('index') ?>"><input type="button" name="buka_post" value="Read More" class="btn btn-default"></a>
+                <a href=""><button type="button" class="btn btn-info">Edit</button></a>
+                <a href="<?php echo base_url('admin/delete_blog/'.$ini->id_blog); ?>"><button type="button" class="btn btn-danger">Delete</button></a>
+                <a href="<?php echo base_url('index') ?>"><input type="button" name="buka_post" value="Read More" class="btn btn-default"></a>
               </div><!-- /.blog-post -->
               <?php }?>
             <!--End Row -->  

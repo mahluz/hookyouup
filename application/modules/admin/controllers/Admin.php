@@ -31,6 +31,10 @@ class Admin extends MX_Controller {
 	public function proses_tambah_event(){
 
 	}
+	public function delete_blog($id_blog){
+		$this->Admin_Model->delete_blog($id_blog);
+		redirect('admin');
+	}
 }
 
 /* End of file Admin.php */

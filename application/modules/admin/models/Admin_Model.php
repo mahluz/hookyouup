@@ -27,6 +27,10 @@ class Admin_Model extends CI_Model {
 
 		return $this->db->get();
 	}
+	public function delete_blog($id_blog){
+		$this->db->where('id_blog',$id_blog);
+		$this->db->delete('blog');
+	}
 }
 
 /* End of file Admin_Model.php */

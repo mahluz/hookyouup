@@ -1,5 +1,6 @@
 <div class="content">
 <!-- image slider -->
+<br><br>
 <div class="slider">
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
@@ -13,19 +14,18 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img src="<?php echo base_url('assets/images/2.jpg'); ?>" alt="Chania">
+       <img src="<?php echo base_url('assets/images/banner-mobile.png'); ?>" class="img-rounded" alt="Cinque Terre" width="1300" height="720">
+    </div>
+    <div class="item">
+      <img src="<?php echo base_url('assets/images/2.jpg'); ?>" alt="Chania" class="img-rounded" alt="Cinque Terre" width="1300" height="720">
     </div>
 
     <div class="item">
-      <img src="<?php echo base_url('assets/images/3.JPG'); ?>" alt="Chania">
+      <img src="<?php echo base_url('assets/images/10.JPG'); ?>" alt="Flower" class="img-rounded" alt="Cinque Terre" width="1300" height="720">
     </div>
 
     <div class="item">
-      <img src="<?php echo base_url('assets/images/5.JPG'); ?>" alt="Flower">
-    </div>
-
-    <div class="item">
-      <img src="<?php echo base_url('assets/images/6.JPG'); ?>" alt="Flower">
+      <img src="<?php echo base_url('assets/images/6.JPG'); ?>" alt="Community" class="img-rounded" alt="Cinque Terre" width="1300" height="720">
     </div>
   </div>
 
@@ -43,9 +43,9 @@
 <hr />
 <div class="cover">
 	<center>
-    <h1>Logo Image</h1>
+    <h2>Hook You Up!</h2>
+     <!-- <img src="<?php echo base_url('assets/images/logo.png'); ?>" class="img-rounded" alt="Cinque Terre" width="350" height="200"> -->
     <!-- <img alt="Logo" src="<?php echo base_url('assets/images/logo.jpg'); ?>"> -->
-    <h2><b>Hook You Up</b></h2>
     <h3>We connect each Community</h3>
     </center>
     <hr/>

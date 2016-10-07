@@ -62,7 +62,7 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">BLOG<span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="<?php echo base_url('admin'); ?>">BLOG<span class="sr-only">(current)</span></a></li>
             <li><a href="<?php echo base_url('admin/event_list'); ?>">EVENT</a></li>
             <li><a href="#">BOOKING</a></li>
             <li><a href="#">MAILING</a></li>
@@ -76,7 +76,9 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
           <h2 class="sub-header">New Entri</h2>
+          <a href="<?php echo base_url('admin'); ?>"><button type="button" class="btn btn-primary">Back</button></a>
           <div class="container">
+          <br>
             <div class="row">
                 <div class="col-md-6">
                   <div class="well well-sm">

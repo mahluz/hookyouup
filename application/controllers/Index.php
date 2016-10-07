@@ -52,7 +52,7 @@ class Index extends CI_Controller {
 		if (!$logged_in){
 		redirect(site_url('Index'));
 		}
-		$this->load->view('main/Index');
+		redirect(site_url('beranda'));
 	}
 	public function signup(){
 		$data['name']=$this->input->post('name');
