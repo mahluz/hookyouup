@@ -29,21 +29,22 @@ class Index extends CI_Controller {
 			$this->load->view('Index');
 		} else
 		{
+		// untuk menset data session
 		if ($num_account > 0){
-		// kalau ada set session
-		$array_items = array(
-		'id_user' => $temp_account->id_user,
-		'name' => $temp_account->name,
-		'email' => $temp_account->email,
-		'logged_in' => true
-		);
-		$this->session->set_userdata($array_items);
-		redirect(site_url('Index/view_success_page'));
+			$array_items = array(
+			'id_user' => $temp_account->id_user,
+			'name' => $temp_account->name,
+			'email' => $temp_account->email,
+			'id_comm' => $temp_account->id_comm,
+			'logged_in' => true
+			);
+			$this->session->set_userdata($array_items);
+			redirect(site_url('Index/view_success_page'));
 		} else {
-		// kalau ga ada diredirect lagi ke halaman login
-		$this->session->set_flashdata('notification', 'Peringatan : email dan Password
-		tidak cocok');
-		redirect(site_url('Index'));
+			// kalau ga ada diredirect lagi ke halaman login
+			$this->session->set_flashdata('notification', 'Peringatan : email dan Password
+			tidak cocok');
+			redirect(site_url('Index'));
 		}
 		}
 	}

@@ -5,9 +5,14 @@
 </head>
 <body>
 <h1>
-	Selamat Anda Berhasil Masuk beranda!
+	Selected Data by Id Comm
 </h1>
-<a href="<?php echo site_url('forum'); ?>"><button type="button">Forum</button></a>
-<a href="<?php echo site_url('index'); ?>"><button type="button">Cover</button></a>
+<?php 
+		echo $community->id_user;
+		echo '<br>';
+		echo $community->name;
+		echo '<br>';
+		echo $community->comm_name
+ ?>
 </body>
 </html>

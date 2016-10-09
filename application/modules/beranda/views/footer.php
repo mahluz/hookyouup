@@ -1,10 +1,18 @@
+</div>
+        <!-- end #wrapper --></div>
+  </div>
+  <!-- /#page-content-wrapper -->
+  <!-- .end container-fluid -->
+<!-- </div> -->
+<!-- end #wrapper -->
+</div>
 <script>
-	$(document).ready(function(e) {
+  $(document).ready(function(e) {
             $("#hide").click(function(e) {
                 $("#option").css("position","static");
             });
         });
-		$("#menu-toggle").click(function(e) {
+    $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
@@ -33,25 +41,8 @@
         );
       }
     $(document).ready(function() {initMenu();});
-	$(document).ready(function(e) {
-        $("#member").click(function(e) {
-            $("#content").load("pages/member.php");
-        });
-		$("#home").click(function(e) {
-            $("#content").load("pages/home.php");
-        });
-		$("#video").click(function(e) {
-            $("#content").load("pages/video.php");
-        });
-		$("#photo").click(function(e) {
-            $("#content").load("pages/photo.php");
-        });
-		$("#forum").click(function(e) {
-            $("#content").load("pages/forum.php");
-        });
-    });
-	$(document).ready(function(){
-		$('[data-toggle="popover"]').popover(); 
+  $(document).ready(function(){
+    $('[data-toggle="popover"]').popover(); 
 });
 function fileSelected() {
         var file = document.getElementById('fileToUpload').files[0];
@@ -105,9 +96,9 @@ function fileSelected() {
 </script>
 <!-- end .gridContainer clearFlix --></div>
 <div class="footer">
-	<center>
-		<h5 style="color:#999; padding-top:1em;padding-bottom:1em;"><b>&copy; 2016 All Right Reserved Zulham azwar achmad </b></h5>
-	</center>
+  <center>
+    <h5 style="color:#999; padding-top:1em;padding-bottom:1em;"><b>&copy; 2016 All Right Reserved Zulham azwar achmad </b></h5>
+  </center>
 </div>
 </div>
 </body>

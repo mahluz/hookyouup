@@ -16,6 +16,20 @@ class Admin_Model extends CI_Model {
 
 		return $this->db->get();
 	}
+	public function select_all_comm(){
+		$this->db->select('*');
+		$this->db->from('community');
+		$this->db->order_by('id_comm','asc');
+
+		return $this->db->get();
+	}
+	public function select_all_user(){
+		$this->db->select('*');
+		$this->db->from('user');
+		$this->db->order_by('id_user','asc');
+
+		return $this->db->get();
+	}
 	public function insert_event($data){
 		$this->db->insert('event',$data);
 	}
@@ -30,6 +44,13 @@ class Admin_Model extends CI_Model {
 	public function delete_blog($id_blog){
 		$this->db->where('id_blog',$id_blog);
 		$this->db->delete('blog');
+	}
+	public function tampil_blog($id_blog){
+		$this->db->select('*');
+		$this->db->from('blog');
+		$this->db->where('id_blog',$id_blog);
+
+		return $this->db->get();
 	}
 }
 

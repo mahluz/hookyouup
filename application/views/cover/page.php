@@ -43,7 +43,7 @@
 <hr />
 <div class="cover">
 	<center>
-    <h2>Hook You Up!</h2>
+    <h2>Owh Yeah!! "Hook You Up" Is Coming !!</h2>
      <!-- <img src="<?php echo base_url('assets/images/logo.png'); ?>" class="img-rounded" alt="Cinque Terre" width="350" height="200"> -->
     <!-- <img alt="Logo" src="<?php echo base_url('assets/images/logo.jpg'); ?>"> -->
     <h3>We connect each Community</h3>

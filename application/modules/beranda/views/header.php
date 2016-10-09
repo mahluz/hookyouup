@@ -6,8 +6,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Community Page</title>
-	<link href="<?php echo base_url('assets/css/boilerplate.css') ?>" rel="stylesheet" type="text/css">
-	<link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet" type="text/css">
+	<link href="<?php echo base_url('assets/css/boilerplate.css'); ?>" rel="stylesheet" type="text/css">
+	<link href="<?php echo base_url('assets/css/comm.css'); ?>" rel="stylesheet" type="text/css">
 	<link href="<?php echo base_url('assets/css/simple-sidebar.css'); ?>" rel="stylesheet">
 	<link rel="icon" href="<?php echo base_url('assets/images/icon.png'); ?>">
 	<script src="<?php echo base_url('assets/js/respond.min.js'); ?>"></script>
@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<link href="font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="<?php echo base_url('assets/font-awesome-4.3.0/css/font-awesome.min.css'); ?>" rel="stylesheet">
 	<style>
 		.glyphicon{
 			position:static;	
@@ -37,7 +37,7 @@
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header fixed-brand">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" id="hide"> <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
-				</button> <a class="navbar-brand" href="#"><i class="fa fa-rocket fa-4">COMMUNITY</a> 
+				</button> <a class="navbar-brand" href="#"><i class="fa fa-rocket fa-4"></i> <?php echo $community->comm_name; ?> COMMUNITY</a> 
 			</div>
 			<!-- navbar-header-->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -55,28 +55,8 @@
 			</div>
 			<!-- bs-example-navbar-collapse-1 -->
 		</nav>
-		<div class="container-fluid" style="background-color:#CCC;color:#fff;min-height:200px;opacity:0.6;padding-bottom:2em;">
-			<a href="#" style="text-decoration:none;">
-				<h1><span class="glyphicon glyphicon-camera"></span> Logo</h1>
-				<h3>Insert your logo here</h3>
-				<form id="form1" enctype="multipart/form-data" method="post" action="images/logo" style="padding-left:2em;">
-					<div class="row">
-						<label for="fileToUpload">Select a File to Upload</label>
-						<br />
-						<input type="file" name="fileToUpload" id="fileToUpload" onchange="fileSelected();" />
-					</div>
-					<div id="fileName"></div>
-					<div id="fileSize"></div>
-					<div id="fileType"></div>
-					<div class="row">
-						<input type="button" onclick="uploadFile()" value="Upload" />
-					</div>
-					<div id="progressNumber"></div>
-				</form>
-			</a>
-		</div>
 		<div id="wrapper" style="padding-left:0;">
-			<div id="option" data-spy="affix" data-offset-top="295">
+			<div id="option" data-spy="affix" data-offset-top="70">
 				<nav class="navbar navbar-inverse">
 					<ul class="nav navbar-nav" id="menu2">
 						<li id="home" class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a>
@@ -100,17 +80,17 @@
 					<ul class="nav navbar-nav navbar-right" style="padding-right:2em;">
 						<li><a href="#"><span class="glyphicon glyphicon-exclamation-sign"></span>  Notification</a>
 						</li>
-						<li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> 
+						<li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>
         <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li data-toggle="modal" data-target="#modalProfile"><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a>
+								<li><a href="<?php echo base_url('beranda/display_data'); ?>"><span class="glyphicon glyphicon-user"></span> Profile</a>
 								</li>
 								<li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Inbox</a>
 								</li>
-								<li><a href="#"><span class="glyphicon glyphicon-cog"></span> Setting</a>
+								<li><a href="<?php echo base_url('beranda/display_session'); ?>""><span class="glyphicon glyphicon-cog"></span> Setting</a>
 								</li>
 								<li class="divider"></li>
-								<li><a href=""><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+								<li><a href="<?php echo base_url('beranda/logout'); ?>"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
 								</li>
 							</ul>
 						</li>
@@ -161,6 +141,7 @@
 								<h4 class="modal-title">Your Profile</h4>
 							</div>
 							<div class="modal-body">
+								<!-- Insert your code here -->
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -170,3 +151,8 @@
 				</div>
 				<!-- end #option -->
 			</div>
+			<!-- <div class="container-fluid"> -->
+	<!-- Page Content -->
+	 <div id="page-content-wrapper" style="position:static;">
+     	<div id="wrapper">
+            <div id="content" style="min-height:1000px;padding-right:1em;">
