@@ -7,6 +7,9 @@ class Index extends CI_Controller {
 		$this->load->helper('url','text','form');
 		$this->load->library('session','form_validation','email');
 		$this->load->model('IndexModel');
+		if($this->session->userdata('logged_in')==true){
+			redirect('Beranda');
+		}
 	}
 	public function index()
 	{
@@ -36,6 +39,7 @@ class Index extends CI_Controller {
 			'name' => $temp_account->name,
 			'email' => $temp_account->email,
 			'id_comm' => $temp_account->id_comm,
+			'status' => $temp_account->status,
 			'logged_in' => true
 			);
 			$this->session->set_userdata($array_items);

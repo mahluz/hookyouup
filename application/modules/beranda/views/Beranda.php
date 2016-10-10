@@ -7,12 +7,15 @@
 <h1>
 	Selected Data by Id Comm
 </h1>
-<?php 
-		echo $community->id_user;
+<?php foreach ($community as $ini): ?>
+	<?php 
+		echo $ini->id_user;
 		echo '<br>';
-		echo $community->name;
+		echo $ini->name;
 		echo '<br>';
-		echo $community->comm_name
- ?>
+		echo $ini->comm_name;
+		echo '<br>';
+ 	?>
+<?php endforeach ?>
 </body>
 </html>

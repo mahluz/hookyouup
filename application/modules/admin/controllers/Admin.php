@@ -7,6 +7,9 @@ class Admin extends MX_Controller {
 		$this->load->model('Admin_Model');
 		$this->load->helper('url','text','form');
 		$this->load->library('session','form_validation','email');
+		if($this->session->userdata('logged_in')==false){
+			redirect('signin');
+		}
 	}
 	public function index()
 	{
@@ -21,10 +24,11 @@ class Admin extends MX_Controller {
 		$this->load->view('footer');
 	}
 	public function proses_tambah_blog(){
+		$selected_admin=$this->session->userdata('id_admin');
 		$data['title']=$this->input->post('title');
 		$data['content']=$this->input->post('content');
 		$this->db->set('date_created','NOW()',FALSE);
-		$this->db->set('id_admin','1');
+		$this->db->set('id_admin',$selected_admin);
 		$this->Admin_Model->insert_blog($data);
 		redirect(site_url('admin'));
 	}
