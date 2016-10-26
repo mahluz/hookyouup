@@ -47,7 +47,6 @@
       <ul class="nav navbar-nav navbar-right">
           <li data-toggle="modal" data-target="#myModal"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
           <li data-toggle="modal" data-target="#myModal1"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>  Booking Us</a></li>
           <li id="hide"><a href="#"><span class="glyphicon glyphicon-remove"></span> Hide Menu</a></li>
         </ul>
     </div>
@@ -90,7 +89,7 @@
                   <label for="sel1">Select Community:</label>
                   <select class="form-control" id="sel1" name="comm">
                     <?php foreach ($comm_list as $comm_ini) {?>
-                      <option value="<?php echo $comm_ini->id_comm; ?>"><?php echo $comm_ini->comm_name; ?></option>
+                      <option value="<?php echo $comm_ini->id_comm; ?>"><?php echo $comm_ini->comm_name; ?>   - <span><?php echo $comm_ini->type; ?> Community</span></option>
                     <?php } ?>
                   </select>
               </div>
@@ -125,7 +124,7 @@
             <input type="password" class="form-control" name="pwd" value="<?php echo set_value('password')?>">
           </div>
           <div class="checkbox">
-            <label><input type="checkbox" id="rememberMe"> Remember me</label>
+            <label><input type="checkbox" id="rememberMe" name="remember_me"> Remember me</label>
           </div>
           <button type="submit" class="btn btn-default" name="btn_login" value="Login">Submit</button>
         </form>

@@ -25,7 +25,7 @@ class Signin extends MX_Controller {
 		if ($num_account > 0){
 		// kalau ada set session
 		$array_items = array(
-		'id_admin' => $temp_account->id_admin,
+		'id_admin' => $temp_account->id_admin,	
 		'email' => $temp_account->email,
 		'logged_in' => true
 		);

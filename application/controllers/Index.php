@@ -7,9 +7,7 @@ class Index extends CI_Controller {
 		$this->load->helper('url','text','form');
 		$this->load->library('session','form_validation','email');
 		$this->load->model('IndexModel');
-		if($this->session->userdata('logged_in')==true){
-			redirect('Beranda');
-		}
+		
 	}
 	public function index()
 	{
@@ -23,6 +21,12 @@ class Index extends CI_Controller {
 		$input_password = $this->input->post('pwd', 'true');
 		$password = md5($input_password);
 		$temp_account = $this->IndexModel->check_user_account($email, $password)->row();
+
+		$remember = $this->input->post('remember_me');
+		if($remember){
+			$this->session->set_userdata('remember_me', true);
+		}
+
 		// check account
 		$num_account = count($temp_account);
 		$this->form_validation->set_rules('email', 'email', 'required');
@@ -48,7 +52,7 @@ class Index extends CI_Controller {
 			// kalau ga ada diredirect lagi ke halaman login
 			$this->session->set_flashdata('notification', 'Peringatan : email dan Password
 			tidak cocok');
-			redirect(site_url('Index'));
+			redirect('Error/error_3');
 		}
 		}
 	}

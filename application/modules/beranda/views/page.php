@@ -31,12 +31,14 @@
 			<div class="col-sm-11">
 				<blockquote>
 					<p><?php echo $ini->name; ?></p>
-					<footer>Created on <?php echo $ini->date_created; ?></footer>
+					<footer>
+					Created on <?php echo $ini->date_created; ?>
+					</footer>
 				</blockquote>
 			</div>
 		</div>
 
-		<h4><?php echo $konten; ?></h4>
+		<i><h4><?php echo $konten; ?></h4></i>
 
 		<form class="form-inline">
 			<div class="btn-group">
