@@ -13,6 +13,14 @@ class Beranda_Model extends CI_Model {
 
 		return $this->db->get();
 	}
+	public function select_all_by_user($id_user){
+		$this->db->select('*');
+		$this->db->from('community');
+		$this->db->join('user','user.id_comm=community.id_comm');
+		$this->db->where('user.id_user',$id_user);
+
+		return $this->db->get();
+	}
 	public function insert_post($data){
 		$this->db->insert('post',$data);
 		$this->db->set('date_created','NOW()',FALSE);
@@ -23,6 +31,16 @@ class Beranda_Model extends CI_Model {
 		$this->db->join('user','community.id_comm=user.id_comm');
 		$this->db->join('post','user.id_user=post.id_user');
 		$this->db->where('user.id_comm',$selected_comm);
+		$this->db->order_by('post.date_created','desc');
+
+		return $this->db->get();
+	}
+	public function select_post_by_user($id_user){
+		$this->db->select('*');
+		$this->db->from('community');
+		$this->db->join('user','community.id_comm=user.id_comm');
+		$this->db->join('post','user.id_user=post.id_user');
+		$this->db->where('user.id_user',$id_user);
 		$this->db->order_by('post.date_created','desc');
 
 		return $this->db->get();
@@ -47,6 +65,19 @@ class Beranda_Model extends CI_Model {
 
 		return $this->db->get();
 	}
+	public function select_all_video($selected_comm){
+		$this->db->select('*');
+		$this->db->from('community');
+		$this->db->join('user','community.id_comm=user.id_comm');
+		$this->db->join('video','user.id_user=video.id_user');
+		$this->db->where('user.id_comm',$selected_comm);
+		$this->db->order_by('id_video','desc');
+
+		return $this->db->get();
+	}
+	public function insert_video($data){
+		$this->db->insert('video',$data);
+	}
 	public function insert_blog($data){
 		$this->db->insert('announcement',$data);
 	}
@@ -67,6 +98,30 @@ class Beranda_Model extends CI_Model {
 
 		return $this->db->get();
 	}
+	// For chat API --------------------------------------------------
+	public function add_message($message, $nickname, $guid)
+	{
+		$data = array(
+			'message'	=> (string) $message,
+			'nickname'	=> (string) $nickname,
+			'guid'		=> (string)	$guid,
+			'timestamp'	=> time(),
+		);
+		  
+		$this->db->insert('messages', $data);
+	}
+ 
+	public function get_messages($timestamp)
+	{
+		$this->db->where('timestamp >', $timestamp);
+		$this->db->order_by('timestamp', 'DESC');
+		$this->db->limit(10); 
+		$query = $this->db->get('messages');
+		
+		return array_reverse($query->result_array());
+	}
+
+	// End chat API --------------------------------------------------
 
 }
 

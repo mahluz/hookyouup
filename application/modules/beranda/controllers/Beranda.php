@@ -46,9 +46,28 @@ class Beranda extends MX_Controller {
 	public function video(){
 		$selected_comm=$this->session->userdata('id_comm');
 		$data['community']=$this->Beranda_Model->select_all_by_comm($selected_comm)->row();
+		$data['video']=$this->Beranda_Model->select_all_video($selected_comm)->result();
 		$this->load->view('header',$data);
-		$this->load->view('video');
+		$this->load->view('video',$data);
 		$this->load->view('footer');
+	}
+	public function new_video(){
+		$selected_comm=$this->session->userdata('id_comm');
+		$data['community']=$this->Beranda_Model->select_all_by_comm($selected_comm)->row();
+		$this->load->view('header',$data);
+		$this->load->view('video_add');
+		$this->load->view('footer');
+	}
+	public function proses_new_video(){
+		$selected_user=$this->session->userdata('id_user');
+		$data['title']=$this->input->post('title');
+		$data['video_url']=$this->input->post('URL');
+		$data['content']=$this->input->post('content');
+		$this->db->set('date_created','NOW()',FALSE);
+		$this->db->set('id_user',$selected_user);
+		$this->Beranda_Model->insert_video($data);
+
+		redirect('Beranda/video');
 	}
 	public function blog_list(){
 		$selected_comm=$this->session->userdata('id_comm');
@@ -121,15 +140,74 @@ class Beranda extends MX_Controller {
 
 		redirect('beranda');
 	}
-	public function profile(){
+	public function proses_new_post_profile(){
+		$data['id_user']=$this->session->userdata('id_user');
+		$data['content']=$this->input->post('content');
+		$this->Beranda_Model->insert_post($data);
+
+		redirect('Beranda/profile_post');
+	}
+	public function profile_post($id_user){
+		$selected_comm=$this->session->userdata('id_comm');
+		$data['community']=$this->Beranda_Model->select_all_by_comm($selected_comm)->row();
+		$data['user']=$this->Beranda_Model->select_all_by_user($id_user)->row();
+		$data['post']=$this->Beranda_Model->select_post_by_user($id_user)->result();
+		$this->load->view('profile/header',$data);
+		$this->load->view('profile/post',$data);
+		$this->load->view('profile/footer');
+	}
+	public function profile_biodata(){
 		$selected_comm=$this->session->userdata('id_comm');
 		$data['community']=$this->Beranda_Model->select_all_by_comm($selected_comm)->row();
 		$this->load->view('profile/header');
 		$this->load->view('profile/biodata',$data);
 		$this->load->view('profile/footer');
 	}
+	public function profile_favorite(){
+		$selected_comm=$this->session->userdata('id_comm');
+		$data['community']=$this->Beranda_Model->select_all_by_comm($selected_comm)->row();
+		$this->load->view('profile/header');
+		$this->load->view('profile/favorite',$data);
+		$this->load->view('profile/footer');
+	}
+	public function profile_following(){
+		$selected_comm=$this->session->userdata('id_comm');
+		$data['community']=$this->Beranda_Model->select_all_by_comm($selected_comm)->row();
+		$this->load->view('profile/header');
+		$this->load->view('profile/following',$data);
+		$this->load->view('profile/footer');
+	}
 	// For Chat API ---------------------------------------------------------
+	public function send_message()
+	{
+		$message = $this->input->get('message', null);
+		$nickname = $this->input->get('nickname', '');
+		$guid = $this->input->get('guid', '');
+		
+		$this->Beranda_Model->add_message($message, $nickname, $guid);
+		
+		$this->_setOutput($message);
+	}
 	
+	
+	public function get_messages()
+	{
+		$timestamp = $this->input->get('timestamp', null);
+		
+		$messages = $this->Beranda_Model->get_messages($timestamp);
+		
+		$this->_setOutput($messages);
+	}
+	
+	
+	private function _setOutput($data)
+	{
+		header('Cache-Control: no-cache, must-revalidate');
+		header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
+		header('Content-type: application/json');
+		
+		echo json_encode($data);
+	}
 	//End Chat API ----------------------------------------------------------
 }
 

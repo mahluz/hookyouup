@@ -25,7 +25,8 @@ class Admin_Model extends CI_Model {
 	}
 	public function select_all_user(){
 		$this->db->select('*');
-		$this->db->from('user');
+		$this->db->from('community');
+		$this->db->join('user','community.id_comm=user.id_comm');
 		$this->db->order_by('id_user','asc');
 
 		return $this->db->get();

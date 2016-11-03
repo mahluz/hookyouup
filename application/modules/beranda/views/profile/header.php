@@ -110,3 +110,45 @@
     </style>
   </head>
   <body style="background-color: #E8E8E8;">
+  <div class="container">
+        <div class="card hovercard">
+            <div class="card-background">
+                <img class="card-bkimg" alt="" src="http://www.w3schools.com/howto/img_avatar.png">
+                <!-- http://lorempixel.com/850/280/people/9/ -->
+            </div>
+            <div class="useravatar">
+                <img alt="" src="http://www.w3schools.com/howto/img_avatar.png">
+            </div>
+            <div class="card-info"> <span class="card-title"><?php echo $user->name; ?></span>
+
+            </div>
+        </div>
+        <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+                <a href="<?php echo base_url('Beranda/profile_post'); ?>"><button type="button" id="post" class="btn btn-primary" ><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    <div class="hidden-xs">Post</div>
+                </button></a>
+            </div>
+            <div class="btn-group" role="group">
+                <a href="<?php echo base_url('Beranda/profile_biodata'); ?>"><button type="button" id="stars" class="btn btn-default "><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    <div class="hidden-xs">Biodata</div>
+                </button></a>
+            </div>
+            <div class="btn-group" role="group">
+                <a href="<?php echo base_url('Beranda/profile_favorite'); ?>"><button type="button" id="favorites" class="btn btn-default"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                    <div class="hidden-xs">Favorites</div>
+                </button></a>
+            </div>
+            <div class="btn-group" role="group">
+                <a href="<?php echo base_url('Beranda/profile_following'); ?>"><button type="button" id="following" class="btn btn-default"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    <div class="hidden-xs">Following</div>
+                </button></a>
+            </div>
+            <div class="btn-group" role="group">
+                <a href="<?php echo base_url('Beranda'); ?>"><button type="button" id="following" class="btn btn-default"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+                    <div class="hidden-xs">Back to Community</div>
+                </button></a>
+            </div>
+        </div>
+
+</div>

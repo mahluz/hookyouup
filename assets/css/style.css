@@ -57,22 +57,7 @@ img, object, embed, video {
 	padding-right: 1%;
 	margin: auto;
 }
-}
-.container {
-	background-color: #FFF;
-	margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout */
-	font-family:awesome;
-}
-.content {
-	padding: 10px 0;
-}
-.cover {
-	margin-left: auto;
-	margin-right: auto;
-	width: 100%;
-	min-height:100vh;
-	
-}
+
 .slider {
 	margin-left: auto;
 	margin-right: auto;
@@ -87,13 +72,4 @@ img, object, embed, video {
 	min-width:100%;
 	padding-left:0;
 	padding-right:0;
-}
-.coverkiri{
-	float:left;
-	width:40vw;	
-}
-.coverkanan{
-	float:left;
-	padding-left:5%;
-	width:40vw;	
 }

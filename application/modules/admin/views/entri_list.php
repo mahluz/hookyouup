@@ -1,7 +1,7 @@
 
 <div class="container">
   <h2>Entri List</h2>
-  <a href="<?php echo base_url('beranda/new_blog'); ?>"><button type="button" class="btn btn-info">New Entri</button></a><hr>
+  <a href="<?php echo base_url('Admin/new_entri'); ?>"><button type="button" class="btn btn-info">New Entri</button></a><hr>
   <div class="row" style="width: 50vw;">
     <?php foreach ($blog as $ini) {
     $post=character_limiter($ini->content,200);?>

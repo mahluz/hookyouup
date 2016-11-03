@@ -8,8 +8,6 @@
 <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet" type="text/css">
 <link rel="icon" href="<?php echo base_url('assets/images/icon.png'); ?>">
 <script src="<?php echo base_url('assets/js/respond.min.js'); ?>"></script>
-<!-- bootstrap -->
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <!-- jQuery library -->
@@ -19,10 +17,15 @@
 <!-- end bootstrap -->
 <script src="<?php echo base_url('assets/js/code.jquery.com/jquery-1.11.1.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/jquery.twbsPagination.js'); ?>"></script>
+<link href='//fonts.googleapis.com/css?family=Magra' rel='stylesheet'>
+<style type="text/css">
+  body {
+        font-family: 'Magra';
+        font-size: 15px;
+    }
+</style>
 </head>
-<body class="gridContainer">
-<div class="gridContainer clearfix">
-<div class="container">
+<body>
 <!-- navigation -->
 <div id="menu">
 
@@ -48,7 +51,7 @@
           <li data-toggle="modal" data-target="#myModal"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
           <li data-toggle="modal" data-target="#myModal1"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           <li id="hide"><a href="#"><span class="glyphicon glyphicon-remove"></span> Hide Menu</a></li>
-        </ul>
+      </ul>
     </div>
   </nav>
 

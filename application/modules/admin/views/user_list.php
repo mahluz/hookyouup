@@ -10,6 +10,7 @@
     <thead>
       <tr>
         <th>ID User</th>
+        <th>Community</th>
         <th>Nama</th>
         <th>Email</th>
         <th>Tanggal Lahir</th>
@@ -22,6 +23,7 @@
     <?php foreach ($user_list as $ini): ?>
       <tr>
         <td><?php echo $ini->id_user; ?></td>
+        <td><?php echo $ini->comm_name; ?></td>
         <td><?php echo $ini->name; ?></td>
         <td><?php echo $ini->email; ?></td>
         <td><?php echo $ini->birth; ?></td>

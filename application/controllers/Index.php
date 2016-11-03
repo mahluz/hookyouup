@@ -7,6 +7,9 @@ class Index extends CI_Controller {
 		$this->load->helper('url','text','form');
 		$this->load->library('session','form_validation','email');
 		$this->load->model('IndexModel');
+		if($this->session->userdata('logged_in')==true){
+			redirect('Beranda');
+		}
 		
 	}
 	public function index()

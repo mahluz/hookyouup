@@ -52,6 +52,9 @@ class Admin extends MX_Controller {
 	}
 	public function tampil_blog($id_blog){
 		$data['selected_blog']=$this->Admin_Model->tampil_blog($id_blog)->row();
+		$this->load->view('header');
+		$this->load->view('entri_view',$data);
+		$this->load->view('footer');
 
 	}
 	public function comm_list(){

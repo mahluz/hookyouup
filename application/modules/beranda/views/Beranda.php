@@ -21,11 +21,11 @@
 
 				<div class="row">
 
-					<div class="col-sm-1">
+					<div class="col-sm-2">
 						<img src="http://www.w3schools.com/howto/img_avatar.png" class="img-rounded" alt="DP" width="70" height="70">
 					</div>
 
-					<div class="col-sm-11">
+					<div class="col-sm-10">
 						<blockquote>
 							<p id="name"><?php echo $ini->name; ?></p>
 							<footer>
@@ -41,14 +41,7 @@
 				<form class="form-inline">
 					<div class="btn-group">
 					<button type="button" class="btn btn-primary">Like</button>
-					<button type="button" class="btn btn-primary">Comment</button>
-						<div class="btn-group">
-						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Share <span class="caret"></span></button>
-						<ul class="dropdown-menu" role="menu">
-						<li><a href="#">Facebook</a></li>
-						<li><a href="#">Twitter</a></li>
-						</ul>
-						</div>
+					<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#comment<?php echo $ini->id_post; ?>">Show Comment</button>
 					<?php if ($ini->name==$this->session->userdata('name')){ ?>
 						<div class="btn-group">
 						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="post_option">Option <span class="caret"></span></button>
@@ -60,7 +53,16 @@
 					<?php } ?>
 					</div>
 				<input type="text" class="form-control" name="" placeholder="Write a comment">
+				<button type="submit" class="btn btn-success">Comment</button>
 				</form>
+				<div id="comment<?php echo $ini->id_post; ?>" class="collapse">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</div>
 
 			</div>	
 		<?php endforeach ?>
