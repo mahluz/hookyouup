@@ -15,6 +15,10 @@ class Beranda extends MX_Controller {
 			$this->session->sess_destroy();
 			redirect('Error');
 		}
+		if($this->session->userdata('logged_in')==true){
+			$data['is_online']=true;
+			$this->Beranda_Model->user_online($data);
+		}
 
 	}
 	public function index()
@@ -22,6 +26,8 @@ class Beranda extends MX_Controller {
 		$selected_comm=$this->session->userdata('id_comm');
 		$data['community']=$this->Beranda_Model->select_all_by_comm($selected_comm)->row();
 		$data['post']=$this->Beranda_Model->select_post_by_comm($selected_comm)->result();
+		$data['comment']=$this->Beranda_Model->select_comment_by_comm($selected_comm)->result();
+		$data['all_post']=$this->Beranda_Model->select_all_post()->result();
 		$this->load->view('header',$data);
 		$this->load->view('beranda',$data);
 		$this->load->view('footer');
@@ -72,7 +78,8 @@ class Beranda extends MX_Controller {
 	public function blog_list(){
 		$selected_comm=$this->session->userdata('id_comm');
 		$data['community']=$this->Beranda_Model->select_all_by_comm($selected_comm)->row();
-		$data['blog']=$this->Beranda_Model->select_all_blog($selected_comm)->result();
+		$data['blog']=$this->Beranda_Model->select_all_blog_by_comm($selected_comm)->result();
+		$data['all_blog']=$this->Beranda_Model->select_all_blog()->result();
 		$this->load->view('header',$data);
 		$this->load->view('blog_list',$data);
 		$this->load->view('footer');
@@ -113,6 +120,7 @@ class Beranda extends MX_Controller {
 	public function forum(){
 		$selected_comm=$this->session->userdata('id_comm');
 		$data['community']=$this->Beranda_Model->select_all_by_comm($selected_comm)->row();
+		$data['online']=$this->Beranda_Model->select_all_user_online_by_comm()->result();
 		$this->load->view('header',$data);
 		$this->load->view('forum',$data);
 		$this->load->view('footer');
@@ -131,6 +139,8 @@ class Beranda extends MX_Controller {
 	}
 	public function logout(){
 		$this->session->sess_destroy();
+		$data['is_online']=false;
+		$this->Beranda_Model->user_online($data);
 		redirect('index');
 	}
 	public function proses_new_post(){
@@ -139,6 +149,14 @@ class Beranda extends MX_Controller {
 		$this->Beranda_Model->insert_post($data);
 
 		redirect('beranda');
+	}
+	public function proses_new_comment($id_post){
+		$data['content_comment']=$this->input->post('comment');
+		$data['id_post']=$id_post;
+		$data['id_user_comment']=$this->session->userdata('id_user');
+		$this->Beranda_Model->insert_comment($data);
+
+		redirect('Beranda');
 	}
 	public function proses_new_post_profile(){
 		$data['id_user']=$this->session->userdata('id_user');

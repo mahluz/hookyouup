@@ -13,6 +13,13 @@ class Admin extends MX_Controller {
 	}
 	public function index()
 	{
+		$data['comm_list']=$this->Admin_Model->select_all_comm()->result();
+		$data['user_list']=$this->Admin_Model->select_all_user()->result();
+		$this->load->view('header');
+		$this->load->view('dashboard',$data);
+		$this->load->view('footer');
+	}
+	public function blog_list(){
 		$data['blog']=$this->Admin_Model->select_all_blog()->result();
 		$this->load->view('header');
 		$this->load->view('entri_list',$data);
@@ -30,7 +37,7 @@ class Admin extends MX_Controller {
 		$this->db->set('date_created','NOW()',FALSE);
 		$this->db->set('id_admin',$selected_admin);
 		$this->Admin_Model->insert_blog($data);
-		redirect(site_url('admin'));
+		redirect(site_url('admin/blog_list'));
 	}
 	public function event_list(){
 		$data['event']=$this->Admin_Model->select_all_event()->result();
@@ -48,7 +55,7 @@ class Admin extends MX_Controller {
 	}
 	public function delete_blog($id_blog){
 		$this->Admin_Model->delete_blog($id_blog);
-		redirect('admin');
+		redirect('admin/blog_list');
 	}
 	public function tampil_blog($id_blog){
 		$data['selected_blog']=$this->Admin_Model->tampil_blog($id_blog)->row();

@@ -23,6 +23,31 @@
         font-family: 'Magra';
         font-size: 15px;
     }
+    /* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  height: 100vh;
+  margin-bottom: 60px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 100vh;
+  background-color: #777;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 100vh;
+}
 </style>
 </head>
 <body>
@@ -32,9 +57,9 @@
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Hook You Up</a>
+        <a class="navbar-brand" href="<?php echo base_url('Index'); ?>">Hook You Up</a>
       </div>
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-left">
         <li class="active"><a href="#"><span class="glyphicon glyphicon-file"></span>  Create your Community [Coming Soon] or Donate</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Registered Community

@@ -23,6 +23,11 @@
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="<?php echo base_url('assets/js/ie-emulation-modes-warning.js'); ?>"></script>
+    <!-- Morris Charts CSS -->
+    <link href="<?php echo base_url('assets/css/plugins/morris.css'); ?>" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="<?php echo base_url('assets/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -46,7 +51,6 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
             <li><a href="#">Settings</a></li>
             <li><a href="#">Profile</a></li>
             <li><a href="#">Help</a></li>
@@ -62,15 +66,15 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="<?php echo base_url('admin'); ?>">BLOG<span class="sr-only">(current)</span></a></li>
-            <li><a href="<?php echo base_url('admin/new_event'); ?>">EVENT</a></li>
-            <li><a href="#">BOOKING</a></li>
-            <li><a href="#">MAILING</a></li>
+            <li><a href="<?php echo base_url('admin'); ?>"><i class="fa fa-fw fa-dashboard"></i>DASHBOARD</a></li>
+            <li><a href="<?php echo base_url('admin/blog_list'); ?>"><i class="fa fa-fw fa-edit"></i>BLOG</a></li>
+            <li><a href="<?php echo base_url('admin/new_event'); ?>"><i class="fa fa-fw fa-table"></i>EVENT</a></li>
+            <li><a href="#"><i class="fa fa-envelope"></i> MAILING</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="<?php echo base_url('admin/comm_list'); ?>">Community List</a></li>
             <li><a href="<?php echo base_url('admin/user_list'); ?>">User List</a></li>
-            <li><a href="">Announcement List</a></li>
+            <li><a href="#">Announcement List</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="<?php echo base_url('admin/logout'); ?>">Logout</a></li>

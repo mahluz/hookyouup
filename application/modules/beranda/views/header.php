@@ -155,32 +155,32 @@
 				<div id="option" data-spy="affix" data-offset-top="160">
 				<div id="sidebar-wrapper" style="height:140vh;">
 					<ul class="sidebar-nav nav-pills nav-stacked" id="menu">
-						<li class="active"> <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-dashboard fa-stack-1x "></i></span>Comming Soon!</a>
+						<li class="active"> <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-dashboard fa-stack-1x "></i></span>Another websites</a>
 							<ul class="nav-pills nav-stacked" style="list-style-type:none;">
-								<li><a href="#">Post</a></li>
-								<li><a href="#">View Databases</a></li>
-								<li><a href="#">Access file</a></li>
-								<li><a href="#">Statistic</a></li>
+								<li><a href="#">EGYPT</a></li>
+								<li><a href="#">EDC</a></li>
+								<li><a href="#">ENERC</a></li>
+								<li><a href="#">BLOGSPOT</a></li>
 							</ul>
 						</li>
-						<li> <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span> Shortcut [Featured]</a>
+						<li> <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span> Developer profile</a>
 							<ul class="nav-pills nav-stacked" style="list-style-type:none;">
-								<li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>Facebook [Featured]</a>
+								<li><a href="https://facebook.com"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>Facebook</a>
 								</li>
-								<li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>Youtube [Featured]</a>
+								<li><a href="https://youtube.com"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>Youtube</a>
 								</li>
 							</ul>
 						</li>
-						<li> <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cloud-download fa-stack-1x "></i></span>Overview [Featured]</a>
+						<li> <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cloud-download fa-stack-1x "></i></span>Download</a>
 						</li>
 						<li>
-							<a href="#"> <span class="fa-stack fa-lg pull-left"><i class="fa fa-cart-plus fa-stack-1x "></i></span>Events [Featured]</a>
+							<a href="#"> <span class="fa-stack fa-lg pull-left"><i class="fa fa-cart-plus fa-stack-1x "></i></span>Order web</a>
 						</li>
-						<li> <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-youtube-play fa-stack-1x "></i></span>About [Featured]</a>
+						<li> <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-youtube-play fa-stack-1x "></i></span>About Developer</a>
 						</li>
-						<li> <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-wrench fa-stack-1x "></i></span>Services [Featured]</a>
+						<li> <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-wrench fa-stack-1x "></i></span>Maintenance Schedule</a>
 						</li>
-						<li> <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-server fa-stack-1x "></i></span>Contact [Featured]</a>
+						<li> <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-server fa-stack-1x "></i></span>Email Developer</a>
 						</li>
 					</ul>
 				</div>

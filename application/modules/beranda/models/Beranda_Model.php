@@ -5,6 +5,18 @@ class Beranda_Model extends CI_Model {
 	public function __construct(){
 
 	}
+	public function user_online($data){
+		$this->db->where('id_user',$this->session->userdata('id_user'));
+		$this->db->update('user',$data);
+	}
+	public function select_all_user_online_by_comm(){
+		$this->db->select('*');
+		$this->db->from('community');
+		$this->db->join('user','user.id_comm=community.id_comm');
+		$this->db->where('user.is_online',true);
+
+		return $this->db->get();
+	}
 	public function select_all_by_comm($selected_comm){
 		$this->db->select('*');
 		$this->db->from('community');
@@ -35,6 +47,32 @@ class Beranda_Model extends CI_Model {
 
 		return $this->db->get();
 	}
+	public function select_all_post(){
+		$this->db->select('*');
+		$this->db->from('community');
+		$this->db->join('user','community.id_comm=user.id_comm');
+		$this->db->join('post','user.id_user=post.id_user');
+		$this->db->where('post.privacy','0');
+		$this->db->order_by('post.date_created','desc');
+		$this->db->limit(10);
+
+		return $this->db->get();
+	}
+	public function insert_comment($data){
+		$this->db->insert('comment_post',$data);
+		$this->db->set('date_created','NOW()',FALSE);
+	}
+	public function select_comment_by_comm($selected_comm){
+		$this->db->select('*');
+		$this->db->from('community');
+		$this->db->join('user','community.id_comm=user.id_comm');
+		$this->db->join('comment_post','user.id_user=comment_post.id_user_comment');
+		$this->db->join('post','post.id_post=comment_post.id_post');
+		$this->db->where('user.id_comm',$selected_comm);
+		$this->db->order_by('comment_post.date_created_comment','asc');
+
+		return $this->db->get();
+	}
 	public function select_post_by_user($id_user){
 		$this->db->select('*');
 		$this->db->from('community');
@@ -45,13 +83,23 @@ class Beranda_Model extends CI_Model {
 
 		return $this->db->get();
 	}
-	public function select_all_blog($selected_comm){
+	public function select_all_blog_by_comm($selected_comm){
 		$this->db->select('*');
 		$this->db->from('community');
 		$this->db->join('user','community.id_comm=user.id_comm');
 		$this->db->join('announcement','user.id_user=announcement.id_user');
 		$this->db->where('user.id_comm',$selected_comm);
 		$this->db->order_by('announcement.date_created','desc');
+
+		return $this->db->get();
+	}
+	public function select_all_blog(){
+		$this->db->select('*');
+		$this->db->from('community');
+		$this->db->join('user','community.id_comm=user.id_comm');
+		$this->db->join('announcement','user.id_user=announcement.id_user');
+		$this->db->order_by('announcement.date_created','desc');
+		$this->db->limit(3);
 
 		return $this->db->get();
 	}

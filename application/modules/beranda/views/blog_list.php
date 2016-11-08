@@ -51,16 +51,18 @@
 
     <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
       <div class="list-group">
-        <a href="#" class="list-group-item active">Link</a>
-        <a href="#" class="list-group-item">Link</a>
-        <a href="#" class="list-group-item">Link</a>
-        <a href="#" class="list-group-item">Link</a>
-        <a href="#" class="list-group-item">Link</a>
-        <a href="#" class="list-group-item">Link</a>
-        <a href="#" class="list-group-item">Link</a>
-        <a href="#" class="list-group-item">Link</a>
-        <a href="#" class="list-group-item">Link</a>
-        <a href="#" class="list-group-item">Link</a>
+        <a href="#" class="list-group-item active">See also</a>
+        <?php foreach ($all_blog as $ini): $konten=character_limiter($ini->content,50);?>
+        	<a href="#" class="list-group-item">
+        		<div class="well well-lg">
+        			<blockquote>
+        				<h4><?php echo $ini->title; ?></h4>
+        				<footer><?php echo $konten; ?>
+        				<button type="button" class="btn btn-default">Visit</button></footer>
+        			</blockquote>
+        		</div>
+        	</a>
+        <?php endforeach ?>
       </div>
     </div><!--/.sidebar-offcanvas-->
     

@@ -18,7 +18,7 @@
 		
 	</script>
 <div class="container">
-	<div class="col-md-9">
+	<div class="col-md-8">
 		<div class="row">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
@@ -51,6 +51,14 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="list-group">
+        <a href="#" class="list-group-item active">People online</a>
+        <?php foreach ($online as $ini): ?>
+        	<a href="#" class="list-group-item"><span class="glyphicon glyphicon-heart "></span> <?php echo $ini->name; ?></a>
+        <?php endforeach ?>
+        </div>
 	</div>  
 </div>
 <script type="text/javascript">

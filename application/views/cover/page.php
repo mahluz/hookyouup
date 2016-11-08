@@ -17,14 +17,45 @@
     </div>
     <div class="item">
       <img src="<?php echo base_url('assets/images/2.jpg'); ?>" alt="Chania" class="img-rounded" alt="Cinque Terre" width="1360" height="720">
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>You can meet another Community</h1>
+          <p>Explore and find a new world of hobbies that makes you interest.Sharing and Competition</p>
+          <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+        </div>
+      </div>
     </div>
 
     <div class="item">
       <img src="<?php echo base_url('assets/images/10.JPG'); ?>" alt="Flower" class="img-rounded" alt="Cinque Terre" width="1360" height="720">
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Improve and Release your Skill</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+        </div>
+      </div>
     </div>
 
     <div class="item">
-      <img src="<?php echo base_url('assets/images/6.JPG'); ?>" alt="Community" class="img-rounded" alt="Cinque Terre" width="1360" height="720">
+      <img src="<?php echo base_url('assets/images/6.jpg'); ?>" alt="Community" class="img-rounded" alt="Cinque Terre" width="1360" height="720">
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>This is the place that can makes you Famous</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+        </div>
+      </div>
     </div>
   </div>
 
