@@ -113,11 +113,11 @@
   <div class="container">
         <div class="card hovercard">
             <div class="card-background">
-                <img class="card-bkimg" alt="" src="http://www.w3schools.com/howto/img_avatar.png">
+                <img class="card-bkimg" alt="" src="<?php echo base_url('assets/gallery/'.$this->session->userdata('id_comm').'/users/'.$this->session->userdata('id_user').'/'.$user->photo_profile); ?>">
                 <!-- http://lorempixel.com/850/280/people/9/ -->
             </div>
             <div class="useravatar">
-                <img alt="" src="http://www.w3schools.com/howto/img_avatar.png">
+                <img alt="" src="<?php echo base_url('assets/gallery/'.$this->session->userdata('id_comm').'/users/'.$this->session->userdata('id_user').'/'.$user->photo_profile); ?>">
             </div>
             <div class="card-info"> <span class="card-title"><?php echo $user->name; ?></span>
 
@@ -145,9 +145,14 @@
                 </button></a>
             </div>
             <div class="btn-group" role="group">
-                <a href="<?php echo base_url('Beranda'); ?>"><button type="button" id="following" class="btn btn-default"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
-                    <div class="hidden-xs">Back to Community</div>
-                </button></a>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span><div class="hidden-xs">Others</div></button>
+                    <ul class="dropdown-menu">
+                    <li><a href="<?php echo base_url('Beranda/profile_change_profile'); ?>">Change Profile</a></li>
+                    <li><a href="#">Setting</a></li>
+                    <li><a href="<?php echo base_url('Beranda'); ?>">Back to Community</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
 

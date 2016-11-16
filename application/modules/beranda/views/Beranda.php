@@ -22,7 +22,7 @@
 				<div class="row">
 
 					<div class="col-sm-2">
-						<img src="http://www.w3schools.com/howto/img_avatar.png" class="img-rounded" alt="DP" width="70" height="70">
+						<img src="<?php echo base_url('assets/gallery/'.$this->session->userdata('id_comm').'/users/'.$ini->id_user.'/'.$ini->photo_profile); ?>" class="img-rounded" alt="DP" width="70" height="70">
 					</div>
 
 					<div class="col-sm-10">

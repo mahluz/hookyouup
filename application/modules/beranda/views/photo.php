@@ -1,5 +1,4 @@
 <div class="container">
-
 	<div class="col-sm-9">
 
 		<div class="btn-group">
@@ -7,21 +6,21 @@
 		</div>
 
 		<div id="upload" class="collapse">
-			<h4>Select files from your computer</h4>
-			<form action="Beranda/do_upload" method="post" enctype="multipart/form-data" id="js-upload-form">
-			<div class="form-inline">
-			<span class="btn btn-success fileinput-button">
-			<i class="glyphicon glyphicon-plus"></i>
-			<span>Add files</span>
-			<input type="file" name="files" multiple>
-			</span>
-			<button type="submit" class="btn btn-primary start">
-			<i class="glyphicon glyphicon-upload"></i>
-			<span>Start upload</span>
-			</button>
-			</div>
-			</form>
+		<h4>Select files from your computer</h4>
+		<form action="Beranda/do_upload" method="post" enctype="multipart/form-data" id="js-upload-form">
+		<div class="form-inline">
+		<span class="btn btn-success fileinput-button">
+		<i class="glyphicon glyphicon-plus"></i>
+		<span>Add files</span>
+		<input type="file" name="fileToUpload" multiple>
+		</span>
+		<button type="submit" class="btn btn-primary start">
+		<i class="glyphicon glyphicon-upload"></i>
+		<span>Start upload</span>
+		</button>
 		</div>
+		</form>
+</div>
 
 	<hr>
 	</div>
@@ -30,7 +29,7 @@
 		<div class="row">
 			<?php foreach ($photo as $ini): ?>
 			  	
-		  		<img src="<?php echo base_url('assets/gallery/'.$community->comm_name.'/photo/'.$ini->photo_name); ?>" id="zoom" class="img-thumbnail" alt="Cinque Terre" width="250" height="250" data-toggle="modal" data-target="#myModal<?php echo $ini->id_photo; ?>">	
+		  		<img src="<?php echo base_url('assets/gallery/'.$this->session->userdata('id_comm').'/photo/'.$ini->photo_name); ?>" id="zoom" class="img-thumbnail" alt="Cinque Terre" width="250" height="250" data-toggle="modal" data-target="#myModal<?php echo $ini->id_photo; ?>">	
 				  	
 
 				<!-- Modal -->
@@ -43,7 +42,7 @@
 								<h4 class="modal-title">Picture of <?php echo $community->comm_name; ?></h4>
 							</div>
 							<div class="modal-body">
-								<img src="<?php echo base_url('assets/gallery/'.$community->comm_name.'/photo/'.$ini->photo_name); ?>" class="img-thumbnail" alt="Cinque Terre">
+								<img src="<?php echo base_url('assets/gallery/'.$this->session->userdata('id_comm').'/photo/'.$ini->photo_name); ?>" class="img-thumbnail" alt="Cinque Terre">
 								<!-- Left-aligned -->
 								<div class="media">
 									<div class="media-left">

@@ -86,7 +86,7 @@
 				</ul>
 				<ul class="nav navbar-nav navbar-right" style="padding-right: 2em;">
 					<div class="chip">
-					<img src="http://www.w3schools.com/howto/img_avatar.png" alt="Person" width="96" height="96">
+					<img src="<?php echo base_url('assets/gallery/'.$this->session->userdata('id_comm').'/users/'.$this->session->userdata('id_user').'/'.$user->photo_profile); ?>" alt="Person" width="96" height="96">
 					Hai <?php echo $this->session->userdata('name'); ?>
 					</div>
 				</ul>
@@ -140,7 +140,7 @@
 						<li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $this->session->userdata('email'); ?>
         					<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="<?php echo base_url('Beranda/profile_post/'.$this->session->userdata('id_user')); ?>"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+								<li><a href="<?php echo base_url('Beranda/profile/'.$this->session->userdata('id_user')); ?>"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
 								<li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Inbox</a></li>
 								<li><a href="<?php echo base_url('beranda/display_data'); ?>"><span class="glyphicon glyphicon-question-sign"></span> Feedback</a></li>
 								<li><a href="<?php echo base_url('beranda/display_session'); ?>"><span class="glyphicon glyphicon-cog"></span> Setting</a></li>

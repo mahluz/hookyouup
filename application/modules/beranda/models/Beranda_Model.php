@@ -126,6 +126,14 @@ class Beranda_Model extends CI_Model {
 	public function insert_video($data){
 		$this->db->insert('video',$data);
 	}
+	public function insert_photo($data){
+		$this->db->set('date_created','NOW()',false);
+		$this->db->insert('photo',$data);
+	}
+	public function insert_photo_profile($data){
+		$this->db->where('id_user',$this->session->userdata('id_user'));
+		$this->db->update('user',$data);
+	}
 	public function insert_blog($data){
 		$this->db->insert('announcement',$data);
 	}
