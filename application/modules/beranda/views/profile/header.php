@@ -113,11 +113,11 @@
   <div class="container">
         <div class="card hovercard">
             <div class="card-background">
-                <img class="card-bkimg" alt="" src="<?php echo base_url('assets/gallery/'.$this->session->userdata('id_comm').'/users/'.$this->session->userdata('id_user').'/'.$user->photo_profile); ?>">
+                <img class="card-bkimg" alt="" src="<?php echo base_url('assets/gallery/'.$this->session->userdata('id_comm').'/users/'.$this->session->userdata('selected_profile').'/'.$user->photo_profile); ?>">
                 <!-- http://lorempixel.com/850/280/people/9/ -->
             </div>
             <div class="useravatar">
-                <img alt="" src="<?php echo base_url('assets/gallery/'.$this->session->userdata('id_comm').'/users/'.$this->session->userdata('id_user').'/'.$user->photo_profile); ?>">
+                <img alt="" src="<?php echo base_url('assets/gallery/'.$this->session->userdata('id_comm').'/users/'.$this->session->userdata('selected_profile').'/'.$user->photo_profile); ?>">
             </div>
             <div class="card-info"> <span class="card-title"><?php echo $user->name; ?></span>
 

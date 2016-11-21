@@ -26,6 +26,7 @@
 	</div>
 
 	<div class="col-sm-11">
+	<?php echo $this->pagination->create_links(); ?>
 		<div class="row">
 			<?php foreach ($photo as $ini): ?>
 			  	

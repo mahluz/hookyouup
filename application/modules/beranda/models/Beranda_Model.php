@@ -93,6 +93,18 @@ class Beranda_Model extends CI_Model {
 
 		return $this->db->get();
 	}
+	public function select_all_blog_by_comm_page($selected_comm,$limit=array()){
+		$this->db->select('*');
+		$this->db->from('community');
+		$this->db->join('user','community.id_comm=user.id_comm');
+		$this->db->join('announcement','user.id_user=announcement.id_user');
+		$this->db->where('user.id_comm',$selected_comm);
+		$this->db->order_by('announcement.date_created','desc');
+
+		if($limit !=null)
+			$this->db->limit($limit['perpage'],$limit['offset']);
+		return $this->db->get();
+	}
 	public function select_all_blog(){
 		$this->db->select('*');
 		$this->db->from('community');
@@ -113,6 +125,18 @@ class Beranda_Model extends CI_Model {
 
 		return $this->db->get();
 	}
+	public function select_all_photo_page($selected_comm,$limit=array()){
+		$this->db->select('*');
+		$this->db->from('community');
+		$this->db->join('user','community.id_comm=user.id_comm');
+		$this->db->join('photo','user.id_user=photo.id_user');
+		$this->db->where('user.id_comm',$selected_comm);
+		$this->db->order_by('id_photo','desc');
+
+		if($limit !=null)
+			$this->db->limit($limit['perpage'],$limit['offset']);
+		return $this->db->get();
+	}
 	public function select_all_video($selected_comm){
 		$this->db->select('*');
 		$this->db->from('community');
@@ -121,6 +145,18 @@ class Beranda_Model extends CI_Model {
 		$this->db->where('user.id_comm',$selected_comm);
 		$this->db->order_by('id_video','desc');
 
+		return $this->db->get();
+	}
+	public function select_all_video_page($selected_comm,$limit=array()){
+		$this->db->select('*');
+		$this->db->from('community');
+		$this->db->join('user','community.id_comm=user.id_comm');
+		$this->db->join('video','user.id_user=video.id_user');
+		$this->db->where('user.id_comm',$selected_comm);
+		$this->db->order_by('id_video','desc');
+
+		if($limit !=null)
+			$this->db->limit($limit['perpage'],$limit['offset']);
 		return $this->db->get();
 	}
 	public function insert_video($data){

@@ -6,6 +6,7 @@
     <h2>Entri List</h2>
     <a href="<?php echo base_url('Beranda/new_blog'); ?>"><button type="button" class="btn btn-info">New Entri</button></a><hr>
       <div class="row" style="width: 50vw;">
+      <?php echo $this->pagination->create_links(); ?>
       <?php foreach ($blog as $ini) {
       $konten=str_replace("\n",'<br>', $ini->content);
       $post=character_limiter($ini->content,200);?>

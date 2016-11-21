@@ -5,12 +5,21 @@ class IndexModel extends CI_Model {
 	public function __construct(){
 		$this->load->database();
 	}
-	public function select_all(){
+	public function select_all_blog(){
         $this->db->select('*');
         $this->db->from('blog');
         $this->db->join('admin','admin.id_admin=blog.id_admin');
         $this->db->order_by('id_blog','desc');
 
+        return $this->db->get();
+    }
+    public function select_all_blog_page($limit=array()){
+        $this->db->select('*');
+        $this->db->from('blog');
+        $this->db->join('admin','admin.id_admin=blog.id_admin');
+        $this->db->order_by('id_blog','desc');
+        if($limit!=null)
+            $this->db->limit($limit['perpage'],$limit['offset']);
         return $this->db->get();
     }
 	public function select_comm(){

@@ -6,7 +6,7 @@ class Beranda extends MX_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->helper('date');
-		$this->load->library('session');
+		$this->load->library('session','pagination');
 		$this->load->model('Beranda_Model');
 		if ($this->session->userdata('logged_in')==false){
 			redirect('Error/error_2');
@@ -33,11 +33,40 @@ class Beranda extends MX_Controller {
 		$this->load->view('beranda',$data);
 		$this->load->view('footer');
 	}
-	public function photo(){
+	public function search_profile(){
+		$str=$this->input->get('txtSearch');
+		$plist=$this->Beranda_Model->search_profile($str);
+		$count_result=0;
+		
+	}
+	public function photo($offset=0){
 		$selected_comm=$this->session->userdata('id_comm');
+		// Pagination Configuration
+		$perpage=8;
+		$config['base_url']="http://localhost/hookyouup/Beranda/photo";
+		$config['total_rows']=count($this->Beranda_Model->select_all_photo($selected_comm)->result()); 
+		$config['per_page']=$perpage;
+		$config['full_tag_open'] = "<ul class='pagination'>";
+		$config['full_tag_close'] ="</ul>";
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
+		$config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+		$config['next_tag_open'] = "<li>";
+		$config['next_tagl_close'] = "</li>";
+		$config['prev_tag_open'] = "<li>";
+		$config['prev_tagl_close'] = "</li>";
+		$config['first_tag_open'] = "<li>";
+		$config['first_tagl_close'] = "</li>";
+		$config['last_tag_open'] = "<li>";
+		$config['last_tagl_close'] = "</li>";
+		$this->pagination->initialize($config);
+		$limit['perpage'] = $perpage;
+		$limit['offset'] =$offset;
+		// End Configuration
 		$data['community']=$this->Beranda_Model->select_all_by_comm($selected_comm)->row();
 		$data['user']=$this->Beranda_Model->select_all_by_user($this->session->userdata('id_user'))->row();
-		$data['photo']=$this->Beranda_Model->select_all_photo($selected_comm)->result();
+		$data['photo']=$this->Beranda_Model->select_all_photo_page($selected_comm,$limit)->result();
 		$this->load->view('header',$data);
 		$this->load->view('photo',$data);
 		$this->load->view('footer');
@@ -51,11 +80,34 @@ class Beranda extends MX_Controller {
 		force_download($name,$data);
 		
 	}
-	public function video(){
+	public function video($offset=0){
 		$selected_comm=$this->session->userdata('id_comm');
+		// Pagination Configuration
+		$perpage=1;
+		$config['base_url']="http://localhost/hookyouup/Beranda/video";
+		$config['total_rows']=count($this->Beranda_Model->select_all_video($selected_comm)->result()); 
+		$config['per_page']=$perpage;
+		$config['full_tag_open'] = "<ul class='pagination'>";
+		$config['full_tag_close'] ="</ul>";
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
+		$config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+		$config['next_tag_open'] = "<li>";
+		$config['next_tagl_close'] = "</li>";
+		$config['prev_tag_open'] = "<li>";
+		$config['prev_tagl_close'] = "</li>";
+		$config['first_tag_open'] = "<li>";
+		$config['first_tagl_close'] = "</li>";
+		$config['last_tag_open'] = "<li>";
+		$config['last_tagl_close'] = "</li>";
+		$this->pagination->initialize($config);
+		$limit['perpage'] = $perpage;
+		$limit['offset'] =$offset;
+		// End Configuration
 		$data['community']=$this->Beranda_Model->select_all_by_comm($selected_comm)->row();
 		$data['user']=$this->Beranda_Model->select_all_by_user($this->session->userdata('id_user'))->row();
-		$data['video']=$this->Beranda_Model->select_all_video($selected_comm)->result();
+		$data['video']=$this->Beranda_Model->select_all_video_page($selected_comm,$limit)->result();
 		$this->load->view('header',$data);
 		$this->load->view('video',$data);
 		$this->load->view('footer');
@@ -79,11 +131,35 @@ class Beranda extends MX_Controller {
 
 		redirect('Beranda/video');
 	}
-	public function blog_list(){
+	public function blog_list($offset=0){
 		$selected_comm=$this->session->userdata('id_comm');
+		// Pagination Configuration
+		$perpage=3;
+		$config['base_url']="http://localhost/hookyouup/Beranda/blog_list";
+		$config['total_rows']=count($this->Beranda_Model->select_all_blog_by_comm($selected_comm)->result()); 
+		$config['per_page']=$perpage;
+		$config['full_tag_open'] = "<ul class='pagination'>";
+		$config['full_tag_close'] ="</ul>";
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
+		$config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+		$config['next_tag_open'] = "<li>";
+		$config['next_tagl_close'] = "</li>";
+		$config['prev_tag_open'] = "<li>";
+		$config['prev_tagl_close'] = "</li>";
+		$config['first_tag_open'] = "<li>";
+		$config['first_tagl_close'] = "</li>";
+		$config['last_tag_open'] = "<li>";
+		$config['last_tagl_close'] = "</li>";
+		$this->pagination->initialize($config);
+		$limit['perpage'] = $perpage;
+		$limit['offset'] =$offset;
+		// End Configuration
+
 		$data['community']=$this->Beranda_Model->select_all_by_comm($selected_comm)->row();
 		$data['user']=$this->Beranda_Model->select_all_by_user($this->session->userdata('id_user'))->row();
-		$data['blog']=$this->Beranda_Model->select_all_blog_by_comm($selected_comm)->result();
+		$data['blog']=$this->Beranda_Model->select_all_blog_by_comm_page($selected_comm,$limit)->result();
 		$data['all_blog']=$this->Beranda_Model->select_all_blog()->result();
 		$this->load->view('header',$data);
 		$this->load->view('blog_list',$data);
@@ -255,8 +331,8 @@ class Beranda extends MX_Controller {
 	$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 	$uploadOk = 1;
 	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-	if(!is_dir("assets/gallery/".$this->session->userdata('id_comm'))){
-		mkdir("assets/gallery/".$this->session->userdata('id_comm'),0777,true);
+	if(!is_dir("assets/gallery/".$this->session->userdata('id_comm')."/photo")){
+		mkdir("assets/gallery/".$this->session->userdata('id_comm')."/photo",0777,true);
 	}
 	// Check if image file is a actual image or fake image
 	if(isset($_POST["submit"])) {

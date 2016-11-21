@@ -1,7 +1,7 @@
 <div class="container">
 
 	<a href="<?php echo base_url('Beranda/new_video'); ?>"><button type="button" class="btn btn-primary">Add Video from Youtube</button></a><hr>
-
+	<?php echo $this->pagination->create_links(); ?>
 	<?php foreach ($video as $ini): ?>
 		<div class="row">
 		<div class="col-sm-11">

@@ -6,6 +6,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Community Page</title>
+	<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'#blog_content' });</script>
 	<link href="<?php echo base_url('assets/css/boilerplate.css'); ?>" rel="stylesheet" type="text/css">
 	<link href="<?php echo base_url('assets/css/comm.css'); ?>" rel="stylesheet" type="text/css">
 	<link href="<?php echo base_url('assets/css/simple-sidebar.css'); ?>" rel="stylesheet">
@@ -76,7 +78,7 @@
 					<li class="active">
 						<form class="navbar-form" role="search">
 				        <div class="input-group">
-				            <input type="text" class="form-control" placeholder="Search" name="q">
+				            <input type="text" class="form-control" placeholder="Search profile" name="q">
 				            <div class="input-group-btn">
 				                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
 				            </div>
@@ -102,7 +104,7 @@
 					<ul class="nav navbar-nav" id="menu2">
 						<li id="home" class="active"><a href="<?php echo base_url('beranda'); ?>"><span class="glyphicon glyphicon-home"></span> Home</a></li>
 						<li id="member"><a href="<?php echo base_url('Beranda/member_list'); ?>"><span class="glyphicon glyphicon-user"></span> Member</a></li>
-						<li id="forum"><a href="<?php echo base_url('Beranda/forum'); ?>"><span class="glyphicon glyphicon-comment"></span> Obrolan grup</a></li>
+						<li id="forum"><a href="<?php echo base_url('Beranda/forum'); ?>"><span class="glyphicon glyphicon-comment"></span> Obrolan Public</a></li>
 						<li id="blog"><a href="<?php echo base_url('beranda/blog_list'); ?>"><span class="glyphicon glyphicon-pushpin"></span> Blog</a></li>
 						<li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-film"></span>  Galery
 						<span class="caret"></span></a>

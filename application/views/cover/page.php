@@ -85,6 +85,7 @@
 <div class="row">
   <div class="col-sm-6">
     <h1>NEWS</h1>
+    <?php echo $this->pagination->create_links(); ?>
     <?php foreach ($blog as $ini) {
       $post=character_limiter($ini->content,200);
       $ini->content=str_replace("\n", '<br>', $ini->content);

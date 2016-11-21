@@ -5,17 +5,41 @@ class Index extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->helper('url','text','form');
-		$this->load->library('session','form_validation','email');
+		$this->load->library('session','form_validation','email','pagination');
 		$this->load->model('IndexModel');
 		if($this->session->userdata('logged_in')==true){
 			redirect('Beranda');
 		}
 		
 	}
-	public function index()
+	public function index($offset=0)
 	{
+		// Pagination Configuration
+		$perpage=3;
+		$config['base_url']="http://localhost/hookyouup/Index/index";
+		$config['total_rows']=count($this->IndexModel->select_all_blog()->result()); 
+		$config['per_page']=$perpage;
+		$config['full_tag_open'] = "<ul class='pagination'>";
+		$config['full_tag_close'] ="</ul>";
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
+		$config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+		$config['next_tag_open'] = "<li>";
+		$config['next_tagl_close'] = "</li>";
+		$config['prev_tag_open'] = "<li>";
+		$config['prev_tagl_close'] = "</li>";
+		$config['first_tag_open'] = "<li>";
+		$config['first_tagl_close'] = "</li>";
+		$config['last_tag_open'] = "<li>";
+		$config['last_tagl_close'] = "</li>";
+		$this->pagination->initialize($config);
+		$limit['perpage'] = $perpage;
+		$limit['offset'] =$offset;
+		// End Configuration
+
 		$data['comm_list']=$this->IndexModel->select_comm()->result();
-		$data['blog']=$this->IndexModel->select_all()->result();
+		$data['blog']=$this->IndexModel->select_all_blog_page($limit)->result();
 		$this->load->view('cover/Index',$data);
 	}
 	// memeriksa keberadaan akun email

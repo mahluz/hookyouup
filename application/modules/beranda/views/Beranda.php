@@ -63,7 +63,7 @@
 					<?php if ($ini->id_post == $comment_ini->id_post): ?>
 						<div class="row">
 							<div class="col-sm-2">
-								<img class="img-rounded" src="https://www.combozo.com/file/2014/01/content_img_41.jpg" alt="Generic placeholder image" width="80" height="80">
+								<img class="img-rounded" src="<?php echo base_url('assets/gallery/'.$this->session->userdata('id_comm').'/users/'.$comment_ini->id_user_comment.'/'.$comment_ini->photo_profile); ?>" alt="Generic placeholder image" width="80" height="80">
 							</div>
 							<div class="col-sm-10">
 							    <h6><?php echo $comment_ini->content_comment; ?></h6>
