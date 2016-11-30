@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2016 at 08:29 AM
+-- Generation Time: Nov 22, 2016 at 04:32 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.6.15
 
@@ -228,7 +228,11 @@ INSERT INTO `messages` (`id`, `message`, `nickname`, `guid`, `timestamp`) VALUES
 (57, 'ga kenapa kenapa', 'Laila', '906e0668-cdd0-9457-479c-547b967538ae', 1478749359),
 (58, 'lah jQuery1102031703763754867276_1478749351382', 'Lynxs', '7c7fc90b-b2ea-40ef-334f-a88578235822', 1478749365),
 (59, 'zz', 'Lynxs', '7c7fc90b-b2ea-40ef-334f-a88578235822', 1478749399),
-(60, 'bodo amat :p', 'Laila', '906e0668-cdd0-9457-479c-547b967538ae', 1478749407);
+(60, 'bodo amat :p', 'Laila', '906e0668-cdd0-9457-479c-547b967538ae', 1478749407),
+(61, 'haii', 'Lynxs', 'f5de8cd6-ee4d-4ee1-df06-344fadde4e09', 1479344171),
+(62, 'kenapa jQuery110208197861837329039_1479344153529', 'Lynxs', 'null', 1479344383),
+(63, 'kenapa jQuery110201521198749934205_1479344157037', 'Laila', 'null', 1479344393),
+(64, 'test', 'Lynxs', 'c99540a0-968f-f646-e8f8-a150e929d174', 1479775176);
 
 -- --------------------------------------------------------
 
@@ -265,7 +269,12 @@ INSERT INTO `photo` (`id_photo`, `id_user`, `photo_name`, `date_created`, `title
 (13, 27, '1464497871900.jpg', '2016-10-21 12:04:50', '', ''),
 (14, 27, 'DSC_0181.JPG', '2016-10-21 12:04:50', '', ''),
 (15, 27, 'DSC_0331.JPG', '2016-10-21 12:05:09', '', ''),
-(16, 27, 'P_20160227_113600.jpg', '2016-10-21 12:05:09', '', '');
+(16, 27, 'P_20160227_113600.jpg', '2016-10-21 12:05:09', '', ''),
+(17, 27, '10394049_10202376428046713_7036902841110505366_n.jpg', '2016-11-16 15:12:23', '', ''),
+(18, 27, 'mtf_YxrHP_139.jpg.jpg', '2016-11-16 15:19:31', '', ''),
+(19, 27, 'C360_2016-07-26-17-16-54-391.jpg', '2016-11-17 03:27:21', '', ''),
+(20, 27, 'C360_2016-07-13-12-05-08-021.jpg', '2016-11-20 10:01:10', '', ''),
+(21, 24, 'IMG_20160225_193713.jpg', '2016-11-20 10:42:01', '', '');
 
 -- --------------------------------------------------------
 
@@ -309,24 +318,25 @@ CREATE TABLE `user` (
   `birth` date NOT NULL,
   `gender` enum('Male','Female') DEFAULT NULL,
   `status` bit(1) NOT NULL DEFAULT b'0',
-  `is_online` int(11) NOT NULL DEFAULT '0'
+  `is_online` int(11) NOT NULL DEFAULT '0',
+  `photo_profile` varchar(120) NOT NULL DEFAULT 'user.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `id_comm`, `name`, `email`, `password`, `birth`, `gender`, `status`, `is_online`) VALUES
-(19, 1, 'Farid', 'farid.istiqlal@gmail.com', '88ac0ad1fce39846dac8a313513d85a2', '0000-00-00', 'Male', b'0', 0),
-(20, 1, 'fitri', 'fitrianisah310@gmail.com', 'e66305d3e0e3b697b8ec8f9ad5ea8954', '0000-00-00', 'Female', b'1', 0),
-(22, 2, 'muslim nuryogi', 'muslim.nuryogi@gmail.com', 'f26510790b446ab7d8939c97b29ea287', '0000-00-00', 'Male', b'0', 0),
-(23, 1, 'senja', 'ayuningtyassenja@gmail.com', '25f9e794323b453885f5181f1b624d0b', '0000-00-00', 'Female', b'0', 0),
-(24, 4, 'Zulham', 'asegaf@ymail.com', 'acc8bd29630c8a070acdd84b4511d006', '0000-00-00', 'Male', b'1', 0),
-(27, 1, 'Lynxs', 'zulham724@gmail.com', 'acc8bd29630c8a070acdd84b4511d006', '0000-00-00', 'Male', b'1', 0),
-(28, 4, 'Bungsu', 'bungsuadi6@gmail.com', 'd8578edf8458ce06fbc5bb76a58c5ca4', '0000-00-00', 'Male', b'0', 0),
-(30, 1, 'Laila', 'lailatulkhusna38@gmail.com', '8a6afed87cbcb4f9bbd3d7781dc3fe51', '0000-00-00', 'Female', b'1', 1),
-(31, 1, 'aye', 'hutabalianaye@gmail.com', '2ceb341dcb5a760d26fc9ce1d7769bd2', '0000-00-00', 'Female', b'1', 0),
-(32, 1, 'Ahmad Najibullah', 'adjiepunya@gmail.com', '670b14728ad9902aecba32e22fa4f6bd', '0000-00-00', 'Male', b'0', 0);
+INSERT INTO `user` (`id_user`, `id_comm`, `name`, `email`, `password`, `birth`, `gender`, `status`, `is_online`, `photo_profile`) VALUES
+(19, 1, 'Farid', 'farid.istiqlal@gmail.com', '88ac0ad1fce39846dac8a313513d85a2', '0000-00-00', 'Male', b'0', 0, 'user.jpg'),
+(20, 1, 'fitri', 'fitrianisah310@gmail.com', 'e66305d3e0e3b697b8ec8f9ad5ea8954', '0000-00-00', 'Female', b'1', 0, 'user.jpg'),
+(22, 2, 'muslim nuryogi', 'muslim.nuryogi@gmail.com', 'f26510790b446ab7d8939c97b29ea287', '0000-00-00', 'Male', b'0', 0, 'user.jpg'),
+(23, 1, 'senja', 'ayuningtyassenja@gmail.com', '25f9e794323b453885f5181f1b624d0b', '0000-00-00', 'Female', b'0', 0, 'user.jpg'),
+(24, 4, 'Zulham', 'asegaf@ymail.com', 'acc8bd29630c8a070acdd84b4511d006', '0000-00-00', 'Male', b'1', 0, 'C360_2016-07-13-12-04-06-644.jpg'),
+(27, 1, 'Lynxs', 'zulham724@gmail.com', 'acc8bd29630c8a070acdd84b4511d006', '0000-00-00', 'Male', b'1', 1, 'IMG_20160207_112209.jpg'),
+(28, 4, 'Bungsu', 'bungsuadi6@gmail.com', 'd8578edf8458ce06fbc5bb76a58c5ca4', '0000-00-00', 'Male', b'0', 0, 'user.jpg'),
+(30, 1, 'Laila', 'lailatulkhusna38@gmail.com', '8a6afed87cbcb4f9bbd3d7781dc3fe51', '0000-00-00', 'Female', b'1', 0, 'IMG_20160811_180534.jpg'),
+(31, 1, 'aye', 'hutabalianaye@gmail.com', '2ceb341dcb5a760d26fc9ce1d7769bd2', '0000-00-00', 'Female', b'1', 0, 'user.jpg'),
+(32, 1, 'Ahmad Najibullah', 'adjiepunya@gmail.com', '670b14728ad9902aecba32e22fa4f6bd', '0000-00-00', 'Male', b'0', 0, 'user.jpg');
 
 -- --------------------------------------------------------
 
@@ -482,12 +492,12 @@ ALTER TABLE `forum`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 --
 -- AUTO_INCREMENT for table `photo`
 --
 ALTER TABLE `photo`
-  MODIFY `id_photo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_photo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `post`
 --

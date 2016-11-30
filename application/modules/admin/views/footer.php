@@ -22,5 +22,9 @@
     <script src="<?php echo base_url('assets/js/vendor/holder.min.js'); ?>"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="<?php echo base_url('assets/js/ie10-viewport-bug-workaround.js'); ?>"></script>
+    <script>
+      var blog = $('.blog');
+      blog.text(blog.text().substring(0,300) + ' . . . .');
+    </script>
   </body>
 </html>

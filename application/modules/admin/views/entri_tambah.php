@@ -2,7 +2,7 @@
 <div class="container">
 <br>
   <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-11">
         <div class="well well-sm">
           <form class="form-horizontal" method="post" action="<?php echo base_url('admin/proses_tambah_blog'); ?>">
           <fieldset>
@@ -10,24 +10,22 @@
     
             <!-- Name input-->
             <div class="form-group">
-              <label class="col-md-3 control-label" for="name">Title</label>
-              <div class="col-md-9">
+              <div class="col-md-12">
                 <input id="name" name="title" type="text" placeholder="Title" class="form-control">
               </div>
             </div>
     
             <!-- Message body -->
             <div class="form-group">
-              <label class="col-md-3 control-label" for="message">Content</label>
-              <div class="col-md-9">
-                <textarea class="form-control" id="message" name="content" placeholder="Please enter your Content here..." rows="5"></textarea>
+              <div class="col-md-12">
+                <textarea class="form-control" id="blog_content" name="content" placeholder="Please enter your Content here..." rows="5"></textarea>
               </div>
             </div>
     
             <!-- Form actions -->
             <div class="form-group">
               <div class="col-md-12 text-right">
-                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                <button type="submit" class="btn btn-default">Submit</button>
               </div>
             </div>
           </fieldset>

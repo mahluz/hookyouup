@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hook You Up</title>
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script>tinymce.init({ selector:'#blog_content' });</script>
 <link href="<?php echo base_url('assets/css/boilerplate.css'); ?>" rel="stylesheet" type="text/css">
 <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet" type="text/css">
 <link rel="icon" href="<?php echo base_url('assets/images/icon.png'); ?>">

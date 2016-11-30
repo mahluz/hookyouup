@@ -13,10 +13,12 @@
         <div class="blog-post">
           <h2 class="blog-post-title"><?php echo $ini->title; ?></h2>
           <p class="blog-post-meta"><span class="glyphicon glyphicon-time"></span><?php echo $ini->date_created ?> by <a href="#"><span class="glyphicon glyphicon-user"></span><?php echo $ini->name; ?></a></p>
-          <p><?php echo $post; ?></p>
+          <div class="konten">
+            <?php echo $ini->content; ?>
+          </div>
           <?php 
           if($ini->name==$this->session->userdata('name')){ ?>
-            <a href=""><button type="button" class="btn btn-info">Edit</button></a>
+            <a href=""><button type="button" class="btn btn-info" disabled>Edit</button></a>
             <a href="<?php echo base_url('Beranda/delete_blog/'.$ini->id_ann); ?>"><button type="button" class="btn btn-danger">Delete</button></a>
           <?php } ?>
           <input type="button" name="buka_post" value="Read More" class="btn btn-default" data-toggle="modal" data-target="#myModal<?php echo $ini->id_ann; ?>" >
@@ -58,7 +60,10 @@
         		<div class="well well-lg">
         			<blockquote>
         				<h4><?php echo $ini->title; ?></h4>
-        				<footer><?php echo $konten; ?>
+        				<footer>
+        				<div class="side_konten">
+        					<?php echo $ini->content; ?>
+        				</div>
         				<button type="button" class="btn btn-default">Visit</button></footer>
         			</blockquote>
         		</div>
@@ -71,3 +76,9 @@
 <hr>
 
 </div><!--/.container-->
+<script>
+	var myDiv = $('.konten');
+	myDiv.text(myDiv.text().substring(0,300) + ' . . . .');
+	var side_konten=$('.side_konten');
+	side_konten.text(side_konten.text().substring(0,150)+'. . . .');
+</script>

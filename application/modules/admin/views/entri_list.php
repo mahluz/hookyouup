@@ -8,7 +8,9 @@
     <div class="blog-post">
       <h2 class="blog-post-title"><?php echo $ini->title; ?></h2>
       <p class="blog-post-meta"><span class="glyphicon glyphicon-time"></span><?php echo $ini->date_created ?> by <a href="#"><span class="glyphicon glyphicon-user"></span><?php echo $ini->nama; ?></a></p>
-      <p><?php echo $post; ?></p>
+      <div class="blog">
+        <?php echo $ini->content; ?>
+      </div>
       <a href=""><button type="button" class="btn btn-info">Edit</button></a>
       <a href="<?php echo base_url('admin/delete_blog/'.$ini->id_blog); ?>"><button type="button" class="btn btn-danger">Delete</button></a>
       <a href="<?php echo base_url('admin/tampil_blog/'.$ini->id_blog); ?>"><input type="button" name="buka_post" value="Read More" class="btn btn-default"></a>
@@ -17,4 +19,5 @@
   <!--End Row -->  
   </div>
 </div>
+
 

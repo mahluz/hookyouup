@@ -16,7 +16,7 @@ class Index extends CI_Controller {
 	{
 		// Pagination Configuration
 		$perpage=3;
-		$config['base_url']="http://localhost/hookyouup/Index/index";
+		$config['base_url']=base_url('Index/index');
 		$config['total_rows']=count($this->IndexModel->select_all_blog()->result()); 
 		$config['per_page']=$perpage;
 		$config['full_tag_open'] = "<ul class='pagination'>";
@@ -88,7 +88,7 @@ class Index extends CI_Controller {
 		if (!$logged_in){
 		redirect(site_url('Index'));
 		}
-		redirect(site_url('beranda'));
+		redirect(site_url('Beranda'));
 	}
 	public function signup(){
 		$data['name']=$this->input->post('name');
@@ -100,7 +100,6 @@ class Index extends CI_Controller {
 		if($this->IndexModel->insert_user($data)){
 			if($this->IndexModel->sendEmail($this->input->post('email'))){
 				// successfully sent mail
-				$this->session->set_flashdata('msg','<div class="alert alert-success text-center">You are Successfully Registered! Please confirm the mail sent to your Email-ID!!!</div>');
                     redirect('Index');
 			}
 			else{
@@ -126,6 +125,28 @@ class Index extends CI_Controller {
             $this->session->set_flashdata('verify_msg','<div class="alert alert-danger text-center">Sorry! There is error verifying your Email Address!</div>');
             redirect('Index');
         }
+    }
+    public function check_ssl(){
+    	$fp = fsockopen("www.google.com", 80, $errno, $errstr, 10); // work fine
+	    if (!$fp)
+	        echo "www.google.com -  $errstr   ($errno)<br>\n";
+	    else
+	        echo "www.google.com -  ok<br>\n";
+
+
+	    $fp = fsockopen("smtp.gmail.com", 465, $errno, $errstr, 10); // NOT work
+	    if (!$fp)
+	        echo "smtp.gmail.com 465  -  $errstr   ($errno)<br>\n";
+	    else
+	        echo "smtp.gmail.com 465 -  ok<br>\n";
+
+
+	    $fp = fsockopen("smtp.gmail.com", 587, $errno, $errstr, 10); // NOT work
+	    if (!$fp)
+	        echo "smtp.gmail.com 587  -  $errstr   ($errno)<br>\n";
+	    else
+	        echo "smtp.gmail.com 587 -  ok<br>\n";
+
     }
 	
 

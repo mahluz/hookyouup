@@ -10,6 +10,8 @@
     <link rel="icon" href="<?php echo base_url('assets/images/icon.png'); ?>">
 
     <title>Admin</title>
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'#blog_content' });</script>
     <!-- bootstrap -->
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Latest compiled and minified CSS -->

@@ -3,7 +3,7 @@
 <a href="<?php echo base_url('Beranda/blog_list'); ?>"><button type="button" class="btn btn-info btn-lg">Back</button></a>
 <br><br>
   <div class="row">
-      <div class="col-md-9">
+      <div class="col-md-11">
         <div class="well well-sm">
           <form class="form-horizontal" method="post" action="<?php echo base_url('Beranda/proses_new_blog'); ?>">
           <fieldset>

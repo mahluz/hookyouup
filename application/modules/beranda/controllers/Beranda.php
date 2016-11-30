@@ -43,7 +43,7 @@ class Beranda extends MX_Controller {
 		$selected_comm=$this->session->userdata('id_comm');
 		// Pagination Configuration
 		$perpage=8;
-		$config['base_url']="http://localhost/hookyouup/Beranda/photo";
+		$config['base_url']=base_url('Beranda/photo');
 		$config['total_rows']=count($this->Beranda_Model->select_all_photo($selected_comm)->result()); 
 		$config['per_page']=$perpage;
 		$config['full_tag_open'] = "<ul class='pagination'>";
@@ -84,7 +84,7 @@ class Beranda extends MX_Controller {
 		$selected_comm=$this->session->userdata('id_comm');
 		// Pagination Configuration
 		$perpage=1;
-		$config['base_url']="http://localhost/hookyouup/Beranda/video";
+		$config['base_url']=base_url('Beranda/video');
 		$config['total_rows']=count($this->Beranda_Model->select_all_video($selected_comm)->result()); 
 		$config['per_page']=$perpage;
 		$config['full_tag_open'] = "<ul class='pagination'>";
@@ -135,7 +135,7 @@ class Beranda extends MX_Controller {
 		$selected_comm=$this->session->userdata('id_comm');
 		// Pagination Configuration
 		$perpage=3;
-		$config['base_url']="http://localhost/hookyouup/Beranda/blog_list";
+		$config['base_url']=base_url('Beranda/blog_list');
 		$config['total_rows']=count($this->Beranda_Model->select_all_blog_by_comm($selected_comm)->result()); 
 		$config['per_page']=$perpage;
 		$config['full_tag_open'] = "<ul class='pagination'>";
